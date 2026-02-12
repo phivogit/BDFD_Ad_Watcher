@@ -36,6 +36,9 @@ backend::backend(QObject *parent)
     }
 }
 
+void backend::updatePort(QString port) {
+    adbPortAddress = port;
+}
 bool backend::isColorSimilar(QColor firstColor, QColor secondColor, int acceptedRange) {
     if ((firstColor.red() - secondColor.red()) > acceptedRange || (firstColor.red() - secondColor.red()) < -acceptedRange) return false;
     if ((firstColor.green() - secondColor.green()) > acceptedRange || (firstColor.green() - secondColor.green()) < -acceptedRange) return false;
@@ -44,7 +47,7 @@ bool backend::isColorSimilar(QColor firstColor, QColor secondColor, int accepted
 }
 void backend::log(QString text) {
     qDebug() << text;
-    emit logUpdated(QString("%1\n").arg(text));
+    emit logUpdated(QString("%1").arg(text));
 }
 void backend::tap(int x, int y) {
     QProcess process;
@@ -82,7 +85,7 @@ void backend::captureScreen() {
 void backend::connectBlueStacks() {
     QProcess process;
     QStringList args;
-    args << "connect" << "127.0.0.1:5555";
+    args << "connect" << adbPortAddress;
     process.start(adbPath, args);
     process.waitForFinished();
 
@@ -148,16 +151,17 @@ void backend::loop() {
             stop();
         }
         if (state == 0) {
+            // Check for ad activate button
             if (isColorSimilar(screenImg.pixelColor(adButtonPos1), adButtonColor, 2) && isColorSimilar(screenImg.pixelColor(adButtonPos2), adButtonColor, 2)) {
                 tap(adButtonPos.x(), adButtonPos.y());
             }
+            // Check if it's state 1 or state 2 after clicking
             if (!(isColorSimilar(screenImg.pixelColor(state0Check1), state0Color1, 2) && isColorSimilar(screenImg.pixelColor(state0Check2), state0Color2, 2))) {
                 if (isColorSimilar(screenImg.pixelColor(captchaCheckPos), captchaCheckColor, 3)) {
                     state = 1;
                 } else {state = 2;}
             }
         } else if (state == 1) {
-
             QRect rect(captchaCorner1.x(), captchaCorner1.y(), captchaCorner2.x()-captchaCorner1.x(), captchaCorner3.y() - captchaCorner1.y());
             QImage captchaImg = screenImg.copy(rect);
             captchaImg.save("temp_captcha.png");
@@ -179,8 +183,9 @@ void backend::loop() {
             state = 5;
         } else if (state == 2) {
             // if there's x button
-            if (isColorSimilar(screenImg.pixelColor(adXButtonPos), adXButtonColor, 3) &&
-                ((isColorSimilar(screenImg.pixelColor(adXButtonCheckPos1), adXButtonCheckColor, 3) && isColorSimilar(screenImg.pixelColor(adXButtonCheckPos2), adXButtonCheckColor, 3)) ||
+            if ((isColorSimilar(screenImg.pixelColor(adXButtonPos), adXButtonColorBlack, 3) ||
+                 isColorSimilar(screenImg.pixelColor(adXButtonPos), adXButtonCheckColorWhite, 3)) &&
+                ((isColorSimilar(screenImg.pixelColor(adXButtonCheckPos1), adXButtonCheckColorWhite, 3) && isColorSimilar(screenImg.pixelColor(adXButtonCheckPos2), adXButtonCheckColorWhite, 3)) ||
                 (isColorSimilar(screenImg.pixelColor(adXButtonCheckPos1), adXButtonCheckColorBlack, 3) && isColorSimilar(screenImg.pixelColor(adXButtonCheckPos2), adXButtonCheckColorBlack, 3)) ||
                 (isColorSimilar(screenImg.pixelColor(adXButtonCheckPos1), adXButtonCheckColorGray, 3) && isColorSimilar(screenImg.pixelColor(adXButtonCheckPos2), adXButtonCheckColorGray, 3)))) {
                 tap(adXButtonPos.x(), adXButtonPos.y());

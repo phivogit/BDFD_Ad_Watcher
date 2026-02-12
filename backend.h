@@ -36,10 +36,15 @@ public:
 
     QString solveCaptcha(QString imagePath);
     bool isWrongCaptcha();
+
+    Q_INVOKABLE void updatePort(QString port);
+    bool isState1();
+    bool isState2();
 signals:
     void logUpdated(QString message);
     void imgPathChanged();
 private:
+    QString adbPortAddress = "127.0.0.1:5555";
     QString adbPath;
     QString imgPath;
     QImage screenImg;
@@ -75,10 +80,10 @@ private:
     QColor state0Color2 = QColor(48, 48, 48);
 
     QPoint adXButtonPos = QPoint(1244, 36);
-    QColor adXButtonColor = QColor(32, 33, 36);
+    QColor adXButtonColorBlack = QColor(32, 33, 36);
     QPoint adXButtonCheckPos1 = QPoint(1231, 34);
     QPoint adXButtonCheckPos2 = QPoint(1244, 47);
-    QColor adXButtonCheckColor = QColor(250, 250, 250);
+    QColor adXButtonCheckColorWhite = QColor(250, 250, 250);
     QColor adXButtonCheckColorBlack = QColor(44, 43, 48);
     QColor adXButtonCheckColorGray = QColor(80, 80, 80);
 
