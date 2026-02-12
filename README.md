@@ -10,6 +10,7 @@ If you use a different kind of phone, or different version of bdfd app, the adve
 
 
 ## Installation
+Install android debug bridge
 1. Go here https://github.com/phivogit/BDFD_Ad_Watcher/releases/tag/v1.0
 2. Download the zip file
 3. Extract the zip file, click on the exe file and it should run.
