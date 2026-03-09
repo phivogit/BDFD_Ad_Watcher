@@ -44,6 +44,8 @@ signals:
     void logUpdated(QString message);
     void imgPathChanged();
 private:
+    bool isScamXButton();
+    QProcess *ocrProcess = nullptr;
     QString adbPortAddress = "127.0.0.1:5555";
     QString adbPath;
     QString imgPath;
@@ -56,6 +58,7 @@ private:
     // State: 0 - main screen | 1 - captcha screen | 2 - Ad screen | 3 - GG play ad Popup screen | 4 - ad success screen
     int state = 0;
     bool isTraining = false;
+    int adbConnected = 0;
 
     QColor adButtonColor = QColor(48, 48, 48);
     QPoint adButtonPos = QPoint(839, 614);
@@ -64,7 +67,7 @@ private:
 
     QPoint captchaCheckPos = QPoint(546, 552);
     QColor captchaCheckColor = QColor(66, 66, 66);
-    QPoint captchaTextBoxPos = QPoint(535, 453);
+    QPoint captchaTextBoxPos = QPoint(590, 444);
     QPoint captchaConfirmPos = QPoint(773, 565);
     QColor captchaConfirmColor = QColor(255, 255, 255);
 
@@ -88,10 +91,12 @@ private:
     QColor adXButtonCheckColorGray = QColor(80, 80, 80);
 
     QPoint popupXButtonPos = QPoint(1190, 65);
-    QColor popupXButtonColor = QColor(70, 70, 70);
+    QColor popupXButtonColor = QColor(68, 71, 70);
     QPoint popupCheckPos1 = QPoint(36, 70);
     QPoint popupCheckPos2 = QPoint(1208, 65);
+    QPoint popupCheckPos3 = QPoint(1180, 65);
     QColor popupCheckColor = QColor(255, 255, 255);
+
 
     QPoint adSuccessExitPos = QPoint(1070, 391);
     QPoint adSuccessExitCheck1Pos = QPoint(842, 475);
@@ -100,17 +105,23 @@ private:
     QPoint adSuccessExitCheck3Pos = QPoint(849, 241);
     QColor adSuccessExitCheck2Color = QColor(66, 66, 66);
 
-    QPoint captchaCorner1 = QPoint(490, 243);
-    QPoint captchaCorner2 = QPoint(788, 243);
-    QPoint captchaCorner3 = QPoint(490, 390);
-    QPoint captchaCorner4 = QPoint(788, 390);
+    QPoint captchaCorner1 = QPoint(490, 244);
+    QPoint captchaCorner2 = QPoint(787, 243);
+    QPoint captchaCorner3 = QPoint(490, 389);
+    QPoint captchaCorner4 = QPoint(788, 389);
 
-    QPoint wrongCaptchaPos1 = QPoint(475, 308);
-    QColor wrongCaptchaCol1 = QColor(108, 108, 108);
-    QPoint wrongCaptchaPos2 = QPoint(794, 461);
-    QColor wrongCaptchaCol2 = QColor(255, 255, 255);
-    QPoint wrongCaptchaPos3 = QPoint(573, 414);
-    QColor wrongCaptchaCol3 = QColor(66, 66, 66);
+    QPoint wrongCaptchaPos1 = QPoint(482, 303);
+    QColor wrongCaptchaCol1 = QColor(255, 255, 255);
+    QPoint wrongCaptchaPos2 = QPoint(1030, 190);
+    QColor wrongCaptchaCol2 = QColor(22, 22, 22);
+    QPoint wrongCaptchaPos3 = QPoint(972, 347);
+    QColor wrongCaptchaCol3 = QColor(30, 30, 30);
+
+    QPoint scamXButtonPos1 = QPoint(1040, 16);
+    QPoint scamXButtonPos2 = QPoint(1222, 17);
+    QPoint scamXButtonPos3 = QPoint(1041, 47);
+    QPoint scamXButtonPos4 = QPoint(1221, 50);
+    int time = 0;
     cv::dnn::Net net;
     bool isModelLoaded = false;
 };

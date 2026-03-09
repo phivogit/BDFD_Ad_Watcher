@@ -3,14 +3,15 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Window {
-    id:parentWindow
+    id: parentWindow
     width: 640
     height: 480
     visible: true
     minimumWidth: 400
     minimumHeight: 100
-    title: "BDFD Ad Watcher Ver 2.0"
+    title: "BDFD Ad Watcher Ver 3.0"
     Text {
+        id: title
         text: "BDFD Ad watcher"
         anchors.horizontalCenter: parent.horizontalCenter
         topPadding: 20
@@ -30,10 +31,8 @@ Window {
     StackLayout {
         width: parent.width
         currentIndex: bar.currentIndex
-
         Rectangle {
             id: tab1
-            anchors.fill: parentWindow
 
             Rectangle {
                 id: mainBorder
@@ -51,7 +50,7 @@ Window {
                     anchors.margins: 20
                     Button {
                         id: connectButton
-                        text: "Connect to bluestacks"
+                        text: "Connect / Disconnect to bluestacks"
                         Layout.fillHeight: true
                         Layout.fillWidth: true
                         onClicked: {
@@ -198,7 +197,6 @@ Window {
         }
         Rectangle {
             id: configurationsTab
-            anchors.fill: parentWindow
             Text {
                 id: adbTitle
                 anchors.top: parent.top

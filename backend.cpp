@@ -9,31 +9,22 @@
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/dnn.hpp>
-#include <vector>
-#include <string>
 #include <QString>
 #include <QDebug>
 backend::backend(QObject *parent)
     : QObject{parent}
 {
-    adbPath = "C:\\Users\\hi\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe";
+    adbPath = QDir::currentPath() + "/adb.exe";
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &backend::loop);
-    try {
-        net = cv::dnn::dnn4_v20211220::readNetFromONNX("captcha_solver.onnx");
-        net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
-        net.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
-        if (net.empty()) {
-            log("AI model loaded but empty");
-            isModelLoaded = false;
-        } else {
-            log("AI Model Loaded.");
-            isModelLoaded = true;
-        }
-    } catch (const cv::Exception& e ){
-        log("Crashed loading AI model: " + QString::fromStdString(e.what()));
-        isModelLoaded = false;
-    }
+
+    // Start OCR server
+    QString pythonPath = QDir::currentPath() + "/ocr_env/Scripts/python.exe";
+    QString scriptPath = QDir::currentPath() + "/ocr.py";
+    ocrProcess = new QProcess(this);
+    ocrProcess->start(pythonPath, QStringList() << scriptPath);
+    ocrProcess->waitForReadyRead(15000); // wait until "OCR server ready"
+    log("OCR server started");
 }
 
 void backend::updatePort(QString port) {
@@ -45,6 +36,23 @@ bool backend::isColorSimilar(QColor firstColor, QColor secondColor, int accepted
     if ((firstColor.blue() - secondColor.blue()) > acceptedRange || (firstColor.blue() - secondColor.blue()) < -acceptedRange) return false;
     return true;
 }
+bool backend::isScamXButton() {
+    QRect rect(scamXButtonPos1.x(), scamXButtonPos1.y(), scamXButtonPos2.x()-scamXButtonPos1.x(), scamXButtonPos3.y() - scamXButtonPos1.y());
+    QImage captchaImg = screenImg.copy(rect);
+    captchaImg.save("scamxbutton.png");
+    QString imagePath = QDir::currentPath() + "/scamxbutton.png";
+    if (imagePath.startsWith("file:///")) imagePath = imagePath.remove(0, 8);
+    imagePath = QDir::toNativeSeparators(imagePath);
+    // URL encode backslashes
+    QString encoded = imagePath.replace("\\", "%5C");
+    QProcess process;
+    process.start("curl", QStringList() << "-s" << ("http://localhost:9119/?path=" + encoded));
+    process.waitForFinished(10000);
+
+    QString result = process.readAllStandardOutput().trimmed();
+    if (result.contains("Reward in")) return true;
+    else return false;
+};
 void backend::log(QString text) {
     qDebug() << text;
     emit logUpdated(QString("%1").arg(text));
@@ -52,7 +60,7 @@ void backend::log(QString text) {
 void backend::tap(int x, int y) {
     QProcess process;
     QStringList args;
-    args << "-s" << "127.0.0.1:5555" << "shell" << "input" << "tap" << QString::number(x) << QString::number(y);
+    args << "-s" << adbPortAddress << "shell" << "input" << "tap" << QString::number(x) << QString::number(y);
 
     process.start(adbPath, args);
     process.waitForFinished();
@@ -61,13 +69,13 @@ void backend::tap(int x, int y) {
 void backend::captureScreen() {
     QProcess process;
     QStringList args;
-    args << "-s" << "127.0.0.1:5555" << "shell" << "screencap" << "-p" << "/sdcard/screenshot.png";
+    args << "-s" << adbPortAddress << "shell" << "screencap" << "-p" << "/sdcard/screenshot.png";
     process.start(adbPath, args);
     process.waitForFinished();
 
     QProcess pullProcess;
     QStringList pullArgs;
-    pullArgs << "-s" << "127.0.0.1:5555" << "pull" << "/sdcard/screenshot.png" << "screenshot.png";
+    pullArgs << "-s" << adbPortAddress << "pull" << "/sdcard/screenshot.png" << "screenshot.png";
     pullProcess.start(adbPath, pullArgs);
     pullProcess.waitForFinished();
 
@@ -85,7 +93,12 @@ void backend::captureScreen() {
 void backend::connectBlueStacks() {
     QProcess process;
     QStringList args;
-    args << "connect" << adbPortAddress;
+    if (adbConnected) {
+        args << "disconnect" << adbPortAddress;
+    } else {
+        args << "connect" << adbPortAddress;
+    }
+    adbConnected = !adbConnected;
     process.start(adbPath, args);
     process.waitForFinished();
 
@@ -132,8 +145,23 @@ void backend::stop() {
 }
 
 void backend::loop() {
+    time += 2;
     log(QString("State %1").arg(state));
     captureScreen();
+    if (time > 120) {
+        // Restate
+        //state 0
+        if (state != 0) {
+            if (isColorSimilar(screenImg.pixelColor(state0Check1), state0Color1, 2) &&
+                isColorSimilar(screenImg.pixelColor(state0Check2), state0Color2, 2)) {
+                state = 0;
+            } else if (isColorSimilar(screenImg.pixelColor(wrongCaptchaPos1), wrongCaptchaCol1, 5) &&
+                isColorSimilar(screenImg.pixelColor(wrongCaptchaPos2), wrongCaptchaCol2, 5) &&
+                       isColorSimilar(screenImg.pixelColor(wrongCaptchaPos3), wrongCaptchaCol3, 5)) {
+                state = 5;
+            }
+        }
+    }
     if (isTraining) {
         if (state == 0) {
             if (isColorSimilar(screenImg.pixelColor(adButtonPos1), adButtonColor, 2) && isColorSimilar(screenImg.pixelColor(adButtonPos2), adButtonColor, 2)) {
@@ -159,7 +187,10 @@ void backend::loop() {
             if (!(isColorSimilar(screenImg.pixelColor(state0Check1), state0Color1, 2) && isColorSimilar(screenImg.pixelColor(state0Check2), state0Color2, 2))) {
                 if (isColorSimilar(screenImg.pixelColor(captchaCheckPos), captchaCheckColor, 3)) {
                     state = 1;
-                } else {state = 2;}
+                } else {
+                    state = 2;
+                    time = 0;
+                }
             }
         } else if (state == 1) {
             QRect rect(captchaCorner1.x(), captchaCorner1.y(), captchaCorner2.x()-captchaCorner1.x(), captchaCorner3.y() - captchaCorner1.y());
@@ -167,20 +198,23 @@ void backend::loop() {
             captchaImg.save("temp_captcha.png");
 
             QString code = solveCaptcha(QDir::currentPath() + "/temp_captcha.png");
-            if (code.length() == 3) {
+            if (code.length() == 5) {
                 tap(captchaTextBoxPos.x(), captchaTextBoxPos.y());
                 QThread::msleep(300);
 
                 QProcess process;
                 QStringList args;
-                args << "-s" << "127.0.0.1:5555" << "shell" << "input" << "text" << code;
+                args << "-s" << adbPortAddress << "shell" << "input" << "text" << code;
 
                 process.start(adbPath, args);
                 process.waitForFinished();
                 tap(captchaConfirmPos.x(), captchaConfirmPos.y());
+                state = 5;
+            } else {
+                state = 0;
+                tap(adSuccessExitPos.x(), adSuccessExitPos.y());
             }
             // Questioning state
-            state = 5;
         } else if (state == 2) {
             // if there's x button
             if ((isColorSimilar(screenImg.pixelColor(adXButtonPos), adXButtonColorBlack, 3) ||
@@ -188,7 +222,11 @@ void backend::loop() {
                 ((isColorSimilar(screenImg.pixelColor(adXButtonCheckPos1), adXButtonCheckColorWhite, 3) && isColorSimilar(screenImg.pixelColor(adXButtonCheckPos2), adXButtonCheckColorWhite, 3)) ||
                 (isColorSimilar(screenImg.pixelColor(adXButtonCheckPos1), adXButtonCheckColorBlack, 3) && isColorSimilar(screenImg.pixelColor(adXButtonCheckPos2), adXButtonCheckColorBlack, 3)) ||
                 (isColorSimilar(screenImg.pixelColor(adXButtonCheckPos1), adXButtonCheckColorGray, 3) && isColorSimilar(screenImg.pixelColor(adXButtonCheckPos2), adXButtonCheckColorGray, 3)))) {
-                tap(adXButtonPos.x(), adXButtonPos.y());
+                if (isScamXButton()) log("It's a scam X button, ignoring it.");
+                else {
+                    tap(adXButtonPos.x(), adXButtonPos.y());
+                    log(QString("Tapped at %1 x %2").arg(adXButtonPos.x()).arg(adXButtonPos.y()));
+                }
             }
             if (isColorSimilar(screenImg.pixelColor(adSuccessExitCheck1Pos), adSuccessExitCheck1Color, 3) &&
                 isColorSimilar(screenImg.pixelColor(adSuccessExitCheck2Pos), adSuccessExitCheck2Color, 3) &&
@@ -196,19 +234,23 @@ void backend::loop() {
                 state = 4;
             if (isColorSimilar(screenImg.pixelColor(popupXButtonPos), popupXButtonColor, 3) &&
                 isColorSimilar(screenImg.pixelColor(popupCheckPos1), popupCheckColor, 3) &&
-                isColorSimilar(screenImg.pixelColor(popupCheckPos2), popupCheckColor, 3))
+                isColorSimilar(screenImg.pixelColor(popupCheckPos2), popupCheckColor, 3) &&
+                isColorSimilar(screenImg.pixelColor(popupCheckPos3), popupCheckColor, 3))
                 state = 3;
             if (isColorSimilar(screenImg.pixelColor(popupErrorPos1), popupErrorColor1, 2) &&
-                !(isColorSimilar(screenImg.pixelColor(state0Check1), state0Color1, 2) && isColorSimilar(screenImg.pixelColor(state0Check2), state0Color2, 2)))
+                !(isColorSimilar(screenImg.pixelColor(state0Check1), state0Color1, 2) && isColorSimilar(screenImg.pixelColor(state0Check2), state0Color2, 2))) {
                 tap(1010, 232);
+                log("Tapped at 1010x232");
+            }
         } else if (state == 3) {
             if (isColorSimilar(screenImg.pixelColor(popupXButtonPos), popupXButtonColor, 3) &&
                 isColorSimilar(screenImg.pixelColor(popupCheckPos1), popupCheckColor, 3) &&
-                isColorSimilar(screenImg.pixelColor(popupCheckPos2), popupCheckColor, 3)) {
+                isColorSimilar(screenImg.pixelColor(popupCheckPos2), popupCheckColor, 3) &&
+                isColorSimilar(screenImg.pixelColor(popupCheckPos3), popupCheckColor, 3)) {
                 tap(popupXButtonPos.x(), popupXButtonPos.y());
-                state = 2;
             } else {
-                log("Undefined state");
+                state = 2;
+                time = 0;
             }
         } else if (state == 4) {
             if (isColorSimilar(screenImg.pixelColor(adSuccessExitCheck1Pos), adSuccessExitCheck1Color, 3) &&
@@ -220,15 +262,18 @@ void backend::loop() {
                 state = 0;
         } else if (state == 5) {
             //is captcha wrong?
-            if (isColorSimilar(screenImg.pixelColor(wrongCaptchaPos1), wrongCaptchaCol1, 2) &&
-                isColorSimilar(screenImg.pixelColor(wrongCaptchaPos2), wrongCaptchaCol2, 2) &&
-                isColorSimilar(screenImg.pixelColor(wrongCaptchaPos3), wrongCaptchaCol3, 2)) {
+            if (isColorSimilar(screenImg.pixelColor(wrongCaptchaPos1), wrongCaptchaCol1, 5) &&
+                isColorSimilar(screenImg.pixelColor(wrongCaptchaPos2), wrongCaptchaCol2, 5) &&
+                isColorSimilar(screenImg.pixelColor(wrongCaptchaPos3), wrongCaptchaCol3, 5)) {
                 tap(adSuccessExitPos.x(), adSuccessExitPos.y());
             } else if (isColorSimilar(screenImg.pixelColor(state0Check1), state0Color1, 2) &&
                        isColorSimilar(screenImg.pixelColor(state0Check2), state0Color2, 2)) {
                 state = 0;
-            } else {
+            } else if (!(isColorSimilar(screenImg.pixelColor(wrongCaptchaPos1), wrongCaptchaCol1, 5) &&
+                        isColorSimilar(screenImg.pixelColor(wrongCaptchaPos2), wrongCaptchaCol2, 5) &&
+                        isColorSimilar(screenImg.pixelColor(wrongCaptchaPos3), wrongCaptchaCol3, 5))){
                 state = 2;
+                time = 0;
             }
 
         }
@@ -247,55 +292,17 @@ void backend::getData() {
 }
 
 QString backend::solveCaptcha(QString imagePath) {
-    if (!isModelLoaded) return "ERROR_LOAD";
-
-    // 1. Path Cleanup
     if (imagePath.startsWith("file:///")) imagePath = imagePath.remove(0, 8);
-    int queryIndex = imagePath.indexOf("?");
-    if (queryIndex != -1) imagePath = imagePath.left(queryIndex);
+    imagePath = QDir::toNativeSeparators(imagePath);
+    // URL encode backslashes
+    QString encoded = imagePath.replace("\\", "%5C");
 
-    // 2. Load & Check Image
-    cv::Mat img = cv::imread(imagePath.toStdString());
-    if (img.empty()) {
-        log("❌ Error: Could not read image path: " + imagePath);
-        return "";
-    }
+    QProcess process;
+    process.start("curl", QStringList() << "-s" << ("http://localhost:9119/?path=" + encoded));
+    process.waitForFinished(10000);
 
-    // 3. Create Blob (Standard NCHW)
-    cv::Mat blob;
-    cv::dnn::blobFromImage(img, blob, 1.0/255.0, cv::Size(128, 64), cv::Scalar(), true, false);
+    QString result = process.readAllStandardOutput().trimmed();
 
-    // 4. Set Input (Matches the name from your python log: 'inputs:0')
-    net.setInput(blob, "inputs:0");
-
-    // 5. Forward Pass
-    std::vector<cv::Mat> outs;
-    try {
-        net.forward(outs);
-    } catch (cv::Exception &e) {
-        log("❌ Inference Crash: " + QString::fromStdString(e.what()));
-        return "";
-    }
-
-    if (outs.empty()) return "ERROR_NO_OUTPUT";
-
-    // 6. Decode (The Array of 30)
-    float* data = (float*)outs[0].data;
-    QString result = "";
-
-    for (int i = 0; i < 3; i++) {
-        int bestNum = -1;
-        float maxProb = -100.0f;
-        for (int j = 0; j < 10; j++) {
-            int index = (i * 10) + j;
-            if (data[index] > maxProb) {
-                maxProb = data[index];
-                bestNum = j;
-            }
-        }
-        result += QString::number(bestNum);
-    }
-
-    log("Captcha Prediction: " + result);
+    log("Captcha prediction: " + result);
     return result;
 }
