@@ -9,7 +9,7 @@ So I made this macro that watches the ad for me 😀.
 * Uses **Bluestacks** emulator (running the BDFD app downloaded from Google Play Store).
 
 ## Installation
-1. Go to [Releases](https://github.com/phivogit/BDFD_Ad_Watcher/releases/tag/v4.1) and download the `.exe` file.
+1. Go to [BDFD Ad Watcher v4.1](https://github.com/phivogit/BDFD_Ad_Watcher/releases/tag/v4.1) and download the `.exe` file.
 2. Run the executable.
 
 > [!NOTE]
@@ -28,6 +28,7 @@ The app includes a configuration tab to map button coordinates if your Bluestack
   Used to capture image templates of buttons and screens to detect application states. Click the save button on the configuration tab, then make **two clicks** on the emulator preview:
   1. First click: **Top-Left** corner of the button.
   2. Second click: **Bottom-Right** corner of the button.
+  **Note that I forgot to add the saving template code, so the templates will reset to the defaults every time you close the app**
 
 ### File & Settings Locations
 * **Default Settings**: Hardcoded as defaults inside [backend.h](file:///d:/Hi/CD/Github_repos/BDFDAdW/backend.h).
