@@ -28,6 +28,7 @@ qt_add_qml_module(appBDFDAdW
     SOURCES
         backend.h
         backend.cpp
+        SOURCES
 )
 
 # 3. LINK LIBRARIES
