@@ -1,7 +1,14 @@
 #include "backend.h"
+#include <QStandardPaths>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QFile>
+#include <QProcessEnvironment>
+
 backend::backend(QObject *parent)
     : QObject{parent}
 {
+    loadSettings();
     adbPath = QDir::currentPath() + "/adb.exe";
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &backend::newloop);
@@ -28,6 +35,7 @@ backend::~backend(){
     }
     if (adbConnected) {
         QProcess adbProcess;
+        setupAdbEnvironment(adbProcess);
         QStringList args;
         args << "disconnect" << adbPortAddress;
         adbProcess.start(adbPath, args);
@@ -37,12 +45,14 @@ backend::~backend(){
 }
 void backend::captureScreen() {
     QProcess process;
+    setupAdbEnvironment(process);
     QStringList args;
     args << "-s" << adbPortAddress << "shell" << "screencap" << "-p" << "/sdcard/screenshot.png";
     process.start(adbPath, args);
     process.waitForFinished();
 
     QProcess pullProcess;
+    setupAdbEnvironment(pullProcess);
     QStringList pullArgs;
     pullArgs << "-s" << adbPortAddress << "pull" << "/sdcard/screenshot.png" << "screenshot.png";
     pullProcess.start(adbPath, pullArgs);
@@ -63,6 +73,7 @@ void backend::captureScreen() {
 
 void backend::connectBlueStacks() {
     QProcess process;
+    setupAdbEnvironment(process);
     QStringList args;
     if (adbConnected) {
         args << "disconnect" << adbPortAddress;
@@ -149,6 +160,7 @@ void backend::newloop() {
             log("Tapped at captchaTextbox");
             QThread::msleep(300);
             QProcess process;
+            setupAdbEnvironment(process);
             QStringList args;
             args << "-s" << adbPortAddress << "shell" << "input" << "text" << code;
             process.start(adbPath, args);
@@ -179,28 +191,108 @@ void backend::newloop() {
 
 void backend::setLocXButton1(QPoint point) {
     XButton1 = point;
+    saveSettings();
 }
 void backend::setLocXButton1_left(QPoint point) {
     XButton1_left = point;
+    saveSettings();
 }
 
 void backend::setLocXButton2(QPoint point) {
     XButton2 = point;
+    saveSettings();
 }
 void backend::setAdWatchButton(QPoint point) {
     adWatchButton = point;
+    saveSettings();
 }
 void backend::setCaptchaTextbox(QPoint point) {
     captchaTextbox = point;
+    saveSettings();
 };
 void backend::setCaptchaConfirm(QPoint point) {
     captchaConfirm = point;
+    saveSettings();
 };
 void backend::updatePort(QString port) {
-    adbPortAddress = port;
+    if (adbPortAddress != port) {
+        adbPortAddress = port;
+        saveSettings();
+        emit adbPortChanged();
+    }
 }
 void backend::setContinueAd(QPoint point) {
     continueAdButton = point;
+    saveSettings();
+}
+
+void backend::setupAdbEnvironment(QProcess &process) {
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    QString adbHome = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
+    QDir().mkpath(adbHome);
+    env.insert("ANDROID_SDK_HOME", adbHome);
+    process.setProcessEnvironment(env);
+}
+
+void backend::saveSettings() {
+    QJsonObject obj;
+    obj["XButton1_x"] = XButton1.x();
+    obj["XButton1_y"] = XButton1.y();
+    obj["XButton1_left_x"] = XButton1_left.x();
+    obj["XButton1_left_y"] = XButton1_left.y();
+    obj["XButton2_x"] = XButton2.x();
+    obj["XButton2_y"] = XButton2.y();
+    obj["adWatchButton_x"] = adWatchButton.x();
+    obj["adWatchButton_y"] = adWatchButton.y();
+    obj["captchaTextbox_x"] = captchaTextbox.x();
+    obj["captchaTextbox_y"] = captchaTextbox.y();
+    obj["captchaConfirm_x"] = captchaConfirm.x();
+    obj["captchaConfirm_y"] = captchaConfirm.y();
+    obj["continueAdButton_x"] = continueAdButton.x();
+    obj["continueAdButton_y"] = continueAdButton.y();
+    obj["adbPortAddress"] = adbPortAddress;
+
+    QJsonDocument doc(obj);
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
+    QDir().mkpath(dir);
+    QFile file(dir + "/settings.json");
+    if (file.open(QIODevice::WriteOnly)) {
+        file.write(doc.toJson());
+        file.close();
+        log("Settings saved to " + file.fileName());
+    }
+}
+
+void backend::loadSettings() {
+    QString dir = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
+    QFile file(dir + "/settings.json");
+    if (!file.exists()) {
+        return;
+    }
+    if (file.open(QIODevice::ReadOnly)) {
+        QByteArray data = file.readAll();
+        file.close();
+        QJsonDocument doc = QJsonDocument::fromJson(data);
+        if (!doc.isNull() && doc.isObject()) {
+            QJsonObject obj = doc.object();
+            if (obj.contains("XButton1_x")) XButton1.setX(obj["XButton1_x"].toInt());
+            if (obj.contains("XButton1_y")) XButton1.setY(obj["XButton1_y"].toInt());
+            if (obj.contains("XButton1_left_x")) XButton1_left.setX(obj["XButton1_left_x"].toInt());
+            if (obj.contains("XButton1_left_y")) XButton1_left.setY(obj["XButton1_left_y"].toInt());
+            if (obj.contains("XButton2_x")) XButton2.setX(obj["XButton2_x"].toInt());
+            if (obj.contains("XButton2_y")) XButton2.setY(obj["XButton2_y"].toInt());
+            if (obj.contains("adWatchButton_x")) adWatchButton.setX(obj["adWatchButton_x"].toInt());
+            if (obj.contains("adWatchButton_y")) adWatchButton.setY(obj["adWatchButton_y"].toInt());
+            if (obj.contains("captchaTextbox_x")) captchaTextbox.setX(obj["captchaTextbox_x"].toInt());
+            if (obj.contains("captchaTextbox_y")) captchaTextbox.setY(obj["captchaTextbox_y"].toInt());
+            if (obj.contains("captchaConfirm_x")) captchaConfirm.setX(obj["captchaConfirm_x"].toInt());
+            if (obj.contains("captchaConfirm_y")) captchaConfirm.setY(obj["captchaConfirm_y"].toInt());
+            if (obj.contains("continueAdButton_x")) continueAdButton.setX(obj["continueAdButton_x"].toInt());
+            if (obj.contains("continueAdButton_y")) continueAdButton.setY(obj["continueAdButton_y"].toInt());
+            if (obj.contains("adbPortAddress")) adbPortAddress = obj["adbPortAddress"].toString();
+            log("Settings loaded from " + file.fileName());
+        }
+    }
 }
 
 
@@ -277,6 +369,7 @@ void backend::log(QString text) {
 
 void backend::tap(int x, int y) {
     QProcess process;
+    setupAdbEnvironment(process);
     QStringList args;
     args << "-s" << adbPortAddress << "shell" << "input" << "tap" << QString::number(x) << QString::number(y);
 

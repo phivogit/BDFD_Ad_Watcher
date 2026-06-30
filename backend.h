@@ -24,6 +24,7 @@
 class backend : public QObject {
     Q_OBJECT
     Q_PROPERTY(QString imgPath READ getImgPath NOTIFY imgPathChanged)
+    Q_PROPERTY(QString adbPort READ getAdbPort WRITE updatePort NOTIFY adbPortChanged)
 public:
     explicit backend(QObject *parent = nullptr);
     ~backend();
@@ -39,6 +40,9 @@ public:
     Q_INVOKABLE void log(QString text);
     Q_INVOKABLE QString getImgPath() {
         return imgPath;
+    }
+    QString getAdbPort() {
+        return adbPortAddress;
     }
     bool isColorSimilar(QColor firstColor, QColor secondColor, int acceptedRange);
 
@@ -59,7 +63,11 @@ public:
 signals:
     void logUpdated(QString message);
     void imgPathChanged();
+    void adbPortChanged();
 private:
+    void saveSettings();
+    void loadSettings();
+    void setupAdbEnvironment(QProcess &process);
     bool matchTemplate(QImage sourceImg, QString templateName);
     QPoint findTemplate(QImage sourceTemplate, QString templateName);
     QPoint XButton1 = QPoint(857, 49);

@@ -185,7 +185,7 @@ Window {
                 id: adbPortInput
                 anchors.left: adbTitle.right
                 anchors.verticalCenter: adbTitle.verticalCenter
-                text: "127.0.0.1:5555"
+                text: backend.adbPort
                 onTextEdited: backend.updatePort(adbPortInput.text)
             }
             Rectangle {
