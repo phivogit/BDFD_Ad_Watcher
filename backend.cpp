@@ -18,7 +18,7 @@ backend::backend(QObject *parent)
 backend::~backend(){
     if (timer && timer->isActive()) {
         timer->stop();
-    }
+    }a
     if (ocrProcess && ocrProcess->state() != QProcess::NotRunning) {
         log("Stopping OCR server...");
         ocrProcess->terminate(); // Send termination signal (SIGTERM/WM_CLOSE)
