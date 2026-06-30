@@ -8,36 +8,42 @@ import QtQuick.tooling 1.2
 Module {
     Component {
         file: "private/qqmllocale_p.h"
+        lineNumber: 86
         name: "QList<QQmlLocale::DayOfWeek>"
         accessSemantics: "sequence"
         valueType: "QQmlLocale::DayOfWeek"
     }
     Component {
         file: "private/qv4sequenceobject_p.h"
+        lineNumber: 186
         name: "std::vector<bool>"
         accessSemantics: "sequence"
         valueType: "bool"
     }
     Component {
         file: "private/qv4sequenceobject_p.h"
+        lineNumber: 183
         name: "std::vector<double>"
         accessSemantics: "sequence"
         valueType: "double"
     }
     Component {
         file: "private/qv4sequenceobject_p.h"
+        lineNumber: 184
         name: "std::vector<float>"
         accessSemantics: "sequence"
         valueType: "float"
     }
     Component {
         file: "private/qv4sequenceobject_p.h"
+        lineNumber: 185
         name: "std::vector<int>"
         accessSemantics: "sequence"
         valueType: "int"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 161
         name: "QAnyStringView"
         accessSemantics: "value"
         extension: "String"
@@ -45,6 +51,7 @@ Module {
     }
     Component {
         file: "private/qqmlglobal_p.h"
+        lineNumber: 246
         name: "QQmlApplication"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -53,6 +60,7 @@ Module {
             type: "QStringList"
             read: "args"
             index: 0
+            lineNumber: 250
             isReadonly: true
             isPropertyConstant: true
         }
@@ -63,6 +71,7 @@ Module {
             write: "setName"
             notify: "nameChanged"
             index: 1
+            lineNumber: 251
         }
         Property {
             name: "version"
@@ -71,6 +80,7 @@ Module {
             write: "setVersion"
             notify: "versionChanged"
             index: 2
+            lineNumber: 252
         }
         Property {
             name: "organization"
@@ -79,6 +89,7 @@ Module {
             write: "setOrganization"
             notify: "organizationChanged"
             index: 3
+            lineNumber: 253
         }
         Property {
             name: "domain"
@@ -87,31 +98,37 @@ Module {
             write: "setDomain"
             notify: "domainChanged"
             index: 4
+            lineNumber: 254
         }
-        Signal { name: "aboutToQuit" }
-        Signal { name: "nameChanged" }
-        Signal { name: "versionChanged" }
-        Signal { name: "organizationChanged" }
-        Signal { name: "domainChanged" }
+        Signal { name: "aboutToQuit"; lineNumber: 273 }
+        Signal { name: "nameChanged"; lineNumber: 275 }
+        Signal { name: "versionChanged"; lineNumber: 276 }
+        Signal { name: "organizationChanged"; lineNumber: 277 }
+        Signal { name: "domainChanged"; lineNumber: 278 }
         Method {
             name: "setName"
+            lineNumber: 267
             Parameter { name: "arg"; type: "QString" }
         }
         Method {
             name: "setVersion"
+            lineNumber: 268
             Parameter { name: "arg"; type: "QString" }
         }
         Method {
             name: "setOrganization"
+            lineNumber: 269
             Parameter { name: "arg"; type: "QString" }
         }
         Method {
             name: "setDomain"
+            lineNumber: 270
             Parameter { name: "arg"; type: "QString" }
         }
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 169
         name: "bool"
         accessSemantics: "value"
         extension: "Boolean"
@@ -122,14 +139,16 @@ Module {
     }
     Component {
         file: "private/qqmlcomponentattached_p.h"
+        lineNumber: 28
         name: "QQmlComponentAttached"
         accessSemantics: "reference"
         prototype: "QObject"
-        Signal { name: "completed" }
-        Signal { name: "destruction" }
+        Signal { name: "completed"; lineNumber: 56 }
+        Signal { name: "destruction"; lineNumber: 57 }
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 517
         name: "QQmlComponent"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -138,10 +157,12 @@ Module {
         attachedType: "QQmlComponentAttached"
         Enum {
             name: "CompilationMode"
+            lineNumber: 42
             values: ["PreferSynchronous", "Asynchronous"]
         }
         Enum {
             name: "Status"
+            lineNumber: 57
             values: ["Null", "Ready", "Loading", "Error"]
         }
         Property {
@@ -150,6 +171,7 @@ Module {
             read: "progress"
             notify: "progressChanged"
             index: 0
+            lineNumber: 37
             isReadonly: true
         }
         Property {
@@ -158,6 +180,7 @@ Module {
             read: "status"
             notify: "statusChanged"
             index: 1
+            lineNumber: 38
             isReadonly: true
         }
         Property {
@@ -165,28 +188,34 @@ Module {
             type: "QUrl"
             read: "url"
             index: 2
+            lineNumber: 39
             isReadonly: true
             isPropertyConstant: true
         }
         Signal {
             name: "statusChanged"
+            lineNumber: 97
             Parameter { type: "QQmlComponent::Status" }
         }
         Signal {
             name: "progressChanged"
+            lineNumber: 98
             Parameter { type: "double" }
         }
         Method {
             name: "loadUrl"
+            lineNumber: 90
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "loadUrl"
+            lineNumber: 91
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "mode"; type: "CompilationMode" }
         }
         Method {
             name: "loadFromModule"
+            lineNumber: 92
             Parameter { name: "uri"; type: "QAnyStringView" }
             Parameter { name: "typeName"; type: "QAnyStringView" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
@@ -194,20 +223,23 @@ Module {
         Method {
             name: "loadFromModule"
             isCloned: true
+            lineNumber: 92
             Parameter { name: "uri"; type: "QAnyStringView" }
             Parameter { name: "typeName"; type: "QAnyStringView" }
         }
         Method {
             name: "setData"
+            lineNumber: 94
             Parameter { type: "QByteArray" }
             Parameter { name: "baseUrl"; type: "QUrl" }
         }
-        Method { name: "errorString"; type: "QString"; isMethodConstant: true }
-        Method { name: "createObject"; isJavaScriptFunction: true }
+        Method { name: "errorString"; type: "QString"; isMethodConstant: true; lineNumber: 69 }
+        Method { name: "createObject"; isJavaScriptFunction: true; lineNumber: 105 }
         Method {
             name: "createObject"
             type: "QObject"
             isPointer: true
+            lineNumber: 108
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
             Parameter { name: "properties"; type: "QVariantMap" }
         }
@@ -216,13 +248,15 @@ Module {
             type: "QObject"
             isPointer: true
             isCloned: true
+            lineNumber: 108
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
         }
-        Method { name: "createObject"; type: "QObject"; isPointer: true; isCloned: true }
-        Method { name: "incubateObject"; isJavaScriptFunction: true }
+        Method { name: "createObject"; type: "QObject"; isPointer: true; isCloned: true; lineNumber: 108 }
+        Method { name: "incubateObject"; isJavaScriptFunction: true; lineNumber: 110 }
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 177
         name: "QDateTime"
         accessSemantics: "value"
         extension: "Date"
@@ -233,6 +267,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 144
         name: "double"
         accessSemantics: "value"
         extension: "Number"
@@ -243,13 +278,17 @@ Module {
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
-        name: "QQmlEasingEnums"
-        accessSemantics: "none"
+        lineNumber: 324
+        name: "QQmlEasing"
+        accessSemantics: "reference"
+        prototype: "QObject"
         exports: ["QML/Easing 1.0"]
         isCreatable: false
+        isSingleton: true
         exportMetaObjectRevisions: [256]
         Enum {
             name: "Type"
+            lineNumber: 331
             values: [
                 "Linear",
                 "InQuad",
@@ -300,14 +339,27 @@ Module {
                 "Bezier"
             ]
         }
+        Method {
+            name: "valueForProgress"
+            type: "double"
+            isMethodConstant: true
+            lineNumber: 361
+            Parameter { name: "type"; type: "QQmlEasing::Type" }
+            Parameter { name: "progress"; type: "double" }
+        }
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 364
         name: "QEasingCurve"
         accessSemantics: "value"
         extension: "QQmlEasingValueType"
+        exports: ["QML/easingCurve 1.0"]
+        isStructured: true
+        exportMetaObjectRevisions: [256]
         Enum {
             name: "Type"
+            lineNumber: 24
             values: [
                 "Linear",
                 "InQuad",
@@ -363,14 +415,16 @@ Module {
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 364
         name: "QQmlEasingValueType"
         accessSemantics: "value"
         Property {
             name: "type"
-            type: "QQmlEasingEnums::Type"
+            type: "QQmlEasing::Type"
             read: "type"
             write: "setType"
             index: 0
+            lineNumber: 372
             isFinal: true
         }
         Property {
@@ -379,6 +433,7 @@ Module {
             read: "amplitude"
             write: "setAmplitude"
             index: 1
+            lineNumber: 373
             isFinal: true
         }
         Property {
@@ -387,6 +442,7 @@ Module {
             read: "overshoot"
             write: "setOvershoot"
             index: 2
+            lineNumber: 374
             isFinal: true
         }
         Property {
@@ -395,6 +451,7 @@ Module {
             read: "period"
             write: "setPeriod"
             index: 3
+            lineNumber: 375
             isFinal: true
         }
         Property {
@@ -404,17 +461,32 @@ Module {
             read: "bezierCurve"
             write: "setBezierCurve"
             index: 4
+            lineNumber: 376
             isFinal: true
         }
-        Method { name: "QQmlEasingValueType"; isConstructor: true }
+        Method {
+            name: "valueForProgress"
+            type: "double"
+            lineNumber: 383
+            Parameter { name: "progress"; type: "double" }
+        }
+        Method { name: "QQmlEasingValueType"; isConstructor: true; lineNumber: 379 }
         Method {
             name: "QQmlEasingValueType"
             isConstructor: true
+            lineNumber: 380
+            Parameter { name: "type"; type: "QQmlEasing::Type" }
+        }
+        Method {
+            name: "QQmlEasingValueType"
+            isConstructor: true
+            lineNumber: 381
             Parameter { name: "easing"; type: "QEasingCurve" }
         }
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 417
         name: "float"
         accessSemantics: "value"
         extension: "Number"
@@ -422,6 +494,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 118
         name: "int"
         accessSemantics: "value"
         extension: "Number"
@@ -432,11 +505,13 @@ Module {
     }
     Component {
         file: "private/qqmllocale_p.h"
+        lineNumber: 61
         name: "QQmlLocale"
         accessSemantics: "value"
         prototype: "QLocale"
         Enum {
             name: "DayOfWeek"
+            lineNumber: 68
             values: [
                 "Sunday",
                 "Monday",
@@ -450,12 +525,14 @@ Module {
     }
     Component {
         file: "private/qqmllocale_p.h"
+        lineNumber: 94
         name: "QLocale"
         accessSemantics: "value"
         extension: "QQmlLocaleValueType"
         Enum {
             name: "Language"
             type: "ushort"
+            lineNumber: 44
             values: [
                 "AnyLanguage",
                 "C",
@@ -804,6 +881,8 @@ Module {
                 "Kuvi",
                 "KaraKalpak",
                 "SwampyCree",
+                "Ladin",
+                "Shan",
                 "Afan",
                 "Bengali",
                 "Bhutani",
@@ -829,6 +908,7 @@ Module {
         Enum {
             name: "Script"
             type: "ushort"
+            lineNumber: 418
             values: [
                 "AnyScript",
                 "AdlamScript",
@@ -984,6 +1064,7 @@ Module {
         Enum {
             name: "Country"
             type: "ushort"
+            lineNumber: 573
             values: [
                 "AnyTerritory",
                 "Afghanistan",
@@ -1277,6 +1358,7 @@ Module {
         }
         Enum {
             name: "MeasurementSystem"
+            lineNumber: 873
             values: [
                 "MetricSystem",
                 "ImperialUSSystem",
@@ -1286,12 +1368,14 @@ Module {
         }
         Enum {
             name: "FormatType"
+            lineNumber: 881
             values: ["LongFormat", "ShortFormat", "NarrowFormat"]
         }
         Enum {
             name: "NumberOptions"
             alias: "NumberOption"
             isFlag: true
+            lineNumber: 883
             values: [
                 "DefaultNumberOptions",
                 "OmitGroupSeparator",
@@ -1306,10 +1390,12 @@ Module {
             name: "TagSeparator"
             isScoped: true
             type: "qint8"
+            lineNumber: 899
             values: ["Dash", "Underscore"]
         }
         Enum {
             name: "CurrencySymbolFormat"
+            lineNumber: 902
             values: [
                 "CurrencyIsoCode",
                 "CurrencySymbol",
@@ -1320,6 +1406,7 @@ Module {
             name: "DataSizeFormats"
             alias: "DataSizeFormat"
             isFlag: true
+            lineNumber: 909
             values: [
                 "DataSizeBase1000",
                 "DataSizeSIQuantifiers",
@@ -1332,6 +1419,7 @@ Module {
             name: "LanguageCodeTypes"
             alias: "LanguageCodeType"
             isFlag: true
+            lineNumber: 1123
             values: [
                 "ISO639Part1",
                 "ISO639Part2B",
@@ -1347,11 +1435,13 @@ Module {
         }
         Enum {
             name: "QuotationStyle"
+            lineNumber: 1180
             values: ["StandardQuotation", "AlternateQuotation"]
         }
     }
     Component {
         file: "private/qqmllocale_p.h"
+        lineNumber: 94
         name: "QQmlLocaleValueType"
         accessSemantics: "value"
         Property {
@@ -1359,6 +1449,7 @@ Module {
             type: "QQmlLocale::DayOfWeek"
             read: "firstDayOfWeek"
             index: 0
+            lineNumber: 98
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1367,6 +1458,7 @@ Module {
             type: "QLocale::MeasurementSystem"
             read: "measurementSystem"
             index: 1
+            lineNumber: 99
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1375,6 +1467,7 @@ Module {
             type: "Qt::LayoutDirection"
             read: "textDirection"
             index: 2
+            lineNumber: 100
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1384,6 +1477,7 @@ Module {
             isList: true
             read: "weekDays"
             index: 3
+            lineNumber: 101
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1392,6 +1486,7 @@ Module {
             type: "QStringList"
             read: "uiLanguages"
             index: 4
+            lineNumber: 102
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1400,6 +1495,7 @@ Module {
             type: "QString"
             read: "name"
             index: 5
+            lineNumber: 104
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1408,6 +1504,7 @@ Module {
             type: "QString"
             read: "nativeLanguageName"
             index: 6
+            lineNumber: 105
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1416,6 +1513,7 @@ Module {
             type: "QString"
             read: "nativeCountryName"
             index: 7
+            lineNumber: 107
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1424,6 +1522,7 @@ Module {
             type: "QString"
             read: "nativeTerritoryName"
             index: 8
+            lineNumber: 109
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1432,6 +1531,7 @@ Module {
             type: "QString"
             read: "decimalPoint"
             index: 9
+            lineNumber: 110
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1440,6 +1540,7 @@ Module {
             type: "QString"
             read: "groupSeparator"
             index: 10
+            lineNumber: 111
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1448,6 +1549,7 @@ Module {
             type: "QString"
             read: "percent"
             index: 11
+            lineNumber: 112
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1456,6 +1558,7 @@ Module {
             type: "QString"
             read: "zeroDigit"
             index: 12
+            lineNumber: 113
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1464,6 +1567,7 @@ Module {
             type: "QString"
             read: "negativeSign"
             index: 13
+            lineNumber: 114
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1472,6 +1576,7 @@ Module {
             type: "QString"
             read: "positiveSign"
             index: 14
+            lineNumber: 115
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1480,6 +1585,7 @@ Module {
             type: "QString"
             read: "exponential"
             index: 15
+            lineNumber: 116
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1488,6 +1594,7 @@ Module {
             type: "QString"
             read: "amText"
             index: 16
+            lineNumber: 117
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1496,6 +1603,7 @@ Module {
             type: "QString"
             read: "pmText"
             index: 17
+            lineNumber: 118
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1505,39 +1613,69 @@ Module {
             read: "numberOptions"
             write: "setNumberOptions"
             index: 18
+            lineNumber: 120
         }
         Method {
             name: "currencySymbol"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 131
             Parameter { name: "format"; type: "QLocale::CurrencySymbolFormat" }
         }
-        Method { name: "currencySymbol"; type: "QString"; isCloned: true; isMethodConstant: true }
+        Method {
+            name: "currencySymbol"
+            type: "QString"
+            isCloned: true
+            isMethodConstant: true
+            lineNumber: 131
+        }
         Method {
             name: "dateTimeFormat"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 137
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
-        Method { name: "dateTimeFormat"; type: "QString"; isCloned: true; isMethodConstant: true }
+        Method {
+            name: "dateTimeFormat"
+            type: "QString"
+            isCloned: true
+            isMethodConstant: true
+            lineNumber: 137
+        }
         Method {
             name: "timeFormat"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 142
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
-        Method { name: "timeFormat"; type: "QString"; isCloned: true; isMethodConstant: true }
+        Method {
+            name: "timeFormat"
+            type: "QString"
+            isCloned: true
+            isMethodConstant: true
+            lineNumber: 142
+        }
         Method {
             name: "dateFormat"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 147
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
-        Method { name: "dateFormat"; type: "QString"; isCloned: true; isMethodConstant: true }
+        Method {
+            name: "dateFormat"
+            type: "QString"
+            isCloned: true
+            isMethodConstant: true
+            lineNumber: 147
+        }
         Method {
             name: "monthName"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 152
             Parameter { name: "index"; type: "int" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1546,12 +1684,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 152
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "standaloneMonthName"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 158
             Parameter { name: "index"; type: "int" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1560,12 +1700,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 158
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "dayName"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 165
             Parameter { name: "index"; type: "int" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1574,12 +1716,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 165
             Parameter { name: "index"; type: "int" }
         }
         Method {
             name: "standaloneDayName"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 171
             Parameter { name: "index"; type: "int" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1588,13 +1732,20 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 171
             Parameter { name: "index"; type: "int" }
         }
-        Method { name: "formattedDataSize"; isJavaScriptFunction: true; isMethodConstant: true }
+        Method {
+            name: "formattedDataSize"
+            isJavaScriptFunction: true
+            isMethodConstant: true
+            lineNumber: 178
+        }
         Method {
             name: "formattedDataSize"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 179
             Parameter { name: "bytes"; type: "double" }
             Parameter { name: "precision"; type: "int" }
             Parameter { name: "format"; type: "QLocale::DataSizeFormats" }
@@ -1604,6 +1755,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 179
             Parameter { name: "bytes"; type: "double" }
             Parameter { name: "precision"; type: "int" }
         }
@@ -1612,26 +1764,30 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 179
             Parameter { name: "bytes"; type: "double" }
         }
-        Method { name: "toString"; isJavaScriptFunction: true; isMethodConstant: true }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Method { name: "toString"; isJavaScriptFunction: true; isMethodConstant: true; lineNumber: 187 }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 192 }
         Method {
             name: "toString"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 194
             Parameter { name: "i"; type: "int" }
         }
         Method {
             name: "toString"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 195
             Parameter { name: "f"; type: "double" }
         }
         Method {
             name: "toString"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 199
             Parameter { name: "f"; type: "double" }
             Parameter { name: "format"; type: "QString" }
             Parameter { name: "precision"; type: "int" }
@@ -1641,6 +1797,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 199
             Parameter { name: "f"; type: "double" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -1648,6 +1805,7 @@ Module {
             name: "toString"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 206
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -1655,6 +1813,7 @@ Module {
             name: "toString"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 210
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "QLocale::FormatType" }
         }
@@ -1663,88 +1822,170 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 210
             Parameter { name: "dateTime"; type: "QDateTime" }
+        }
+        Method {
+            name: "createSeparatedList"
+            type: "QString"
+            isMethodConstant: true
+            lineNumber: 216
+            Parameter { name: "list"; type: "QStringList" }
         }
         Method {
             name: "QQmlLocaleValueType"
             isConstructor: true
+            lineNumber: 129
             Parameter { name: "name"; type: "QString" }
         }
     }
     Component {
         file: "private/qqmlloggingcategorybase_p.h"
+        lineNumber: 28
         name: "QQmlLoggingCategoryBase"
         accessSemantics: "reference"
         prototype: "QObject"
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 268
         name: "QMarginsF"
         accessSemantics: "value"
         extension: "QQmlMarginsFValueType"
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 268
         name: "QQmlMarginsFValueType"
         accessSemantics: "value"
-        Property { name: "left"; type: "double"; read: "left"; write: "setLeft"; index: 0; isFinal: true }
-        Property { name: "right"; type: "double"; read: "right"; write: "setRight"; index: 1; isFinal: true }
-        Property { name: "top"; type: "double"; read: "top"; write: "setTop"; index: 2; isFinal: true }
+        Property {
+            name: "left"
+            type: "double"
+            read: "left"
+            write: "setLeft"
+            index: 0
+            lineNumber: 270
+            isFinal: true
+        }
+        Property {
+            name: "right"
+            type: "double"
+            read: "right"
+            write: "setRight"
+            index: 1
+            lineNumber: 271
+            isFinal: true
+        }
+        Property {
+            name: "top"
+            type: "double"
+            read: "top"
+            write: "setTop"
+            index: 2
+            lineNumber: 272
+            isFinal: true
+        }
         Property {
             name: "bottom"
             type: "double"
             read: "bottom"
             write: "setBottom"
             index: 3
+            lineNumber: 273
             isFinal: true
         }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 284 }
         Method {
             name: "QQmlMarginsFValueType"
             isConstructor: true
+            lineNumber: 282
             Parameter { name: "margins"; type: "QMarginsF" }
         }
         Method {
             name: "QQmlMarginsFValueType"
             isConstructor: true
+            lineNumber: 283
             Parameter { name: "margins"; type: "QMargins" }
         }
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 295
         name: "QMargins"
         accessSemantics: "value"
         extension: "QQmlMarginsValueType"
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 295
         name: "QQmlMarginsValueType"
         accessSemantics: "value"
-        Property { name: "left"; type: "int"; read: "left"; write: "setLeft"; index: 0; isFinal: true }
-        Property { name: "right"; type: "int"; read: "right"; write: "setRight"; index: 1; isFinal: true }
-        Property { name: "top"; type: "int"; read: "top"; write: "setTop"; index: 2; isFinal: true }
-        Property { name: "bottom"; type: "int"; read: "bottom"; write: "setBottom"; index: 3; isFinal: true }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Property {
+            name: "left"
+            type: "int"
+            read: "left"
+            write: "setLeft"
+            index: 0
+            lineNumber: 297
+            isFinal: true
+        }
+        Property {
+            name: "right"
+            type: "int"
+            read: "right"
+            write: "setRight"
+            index: 1
+            lineNumber: 298
+            isFinal: true
+        }
+        Property {
+            name: "top"
+            type: "int"
+            read: "top"
+            write: "setTop"
+            index: 2
+            lineNumber: 299
+            isFinal: true
+        }
+        Property {
+            name: "bottom"
+            type: "int"
+            read: "bottom"
+            write: "setBottom"
+            index: 3
+            lineNumber: 300
+            isFinal: true
+        }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 311 }
         Method {
             name: "QQmlMarginsValueType"
             isConstructor: true
+            lineNumber: 309
             Parameter { name: "margins"; type: "QMargins" }
         }
         Method {
             name: "QQmlMarginsValueType"
             isConstructor: true
+            lineNumber: 310
             Parameter { name: "margins"; type: "QMarginsF" }
         }
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 203
         name: "std::nullptr_t"
         accessSemantics: "value"
         extension: "QQmlNullForeign"
     }
-    Component { file: "private/qqmlbuiltins_p.h"; name: "QQmlNullForeign"; accessSemantics: "value" }
+    Component {
+        file: "private/qqmlbuiltins_p.h"
+        lineNumber: 203
+        name: "QQmlNullForeign"
+        accessSemantics: "value"
+    }
     Component {
         file: "private/qqmlplatform_p.h"
+        lineNumber: 25
         name: "QQmlPlatform"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -1753,6 +1994,7 @@ Module {
             type: "QString"
             read: "os"
             index: 0
+            lineNumber: 28
             isReadonly: true
             isPropertyConstant: true
         }
@@ -1761,12 +2003,14 @@ Module {
             type: "QString"
             read: "pluginName"
             index: 1
+            lineNumber: 29
             isReadonly: true
             isPropertyConstant: true
         }
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 110
         name: "QPointF"
         accessSemantics: "value"
         extension: "QQmlPointFValueType"
@@ -1776,49 +2020,73 @@ Module {
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 110
         name: "QQmlPointFValueType"
         accessSemantics: "value"
-        Property { name: "x"; type: "double"; read: "x"; write: "setX"; index: 0; isFinal: true }
-        Property { name: "y"; type: "double"; read: "y"; write: "setY"; index: 1; isFinal: true }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
-        Method { name: "QQmlPointFValueType"; isConstructor: true }
+        Property {
+            name: "x"
+            type: "double"
+            read: "x"
+            write: "setX"
+            index: 0
+            lineNumber: 112
+            isFinal: true
+        }
+        Property {
+            name: "y"
+            type: "double"
+            read: "y"
+            write: "setY"
+            index: 1
+            lineNumber: 113
+            isFinal: true
+        }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 124 }
+        Method { name: "QQmlPointFValueType"; isConstructor: true; lineNumber: 121 }
         Method {
             name: "QQmlPointFValueType"
             isConstructor: true
+            lineNumber: 122
             Parameter { name: "point"; type: "QPointF" }
         }
         Method {
             name: "QQmlPointFValueType"
             isConstructor: true
+            lineNumber: 123
             Parameter { name: "point"; type: "QPoint" }
         }
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 131
         name: "QPoint"
         accessSemantics: "value"
         extension: "QQmlPointValueType"
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 131
         name: "QQmlPointValueType"
         accessSemantics: "value"
-        Property { name: "x"; type: "int"; read: "x"; write: "setX"; index: 0; isFinal: true }
-        Property { name: "y"; type: "int"; read: "y"; write: "setY"; index: 1; isFinal: true }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Property { name: "x"; type: "int"; read: "x"; write: "setX"; index: 0; lineNumber: 133; isFinal: true }
+        Property { name: "y"; type: "int"; read: "y"; write: "setY"; index: 1; lineNumber: 134; isFinal: true }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 145 }
         Method {
             name: "QQmlPointValueType"
             isConstructor: true
+            lineNumber: 143
             Parameter { name: "point"; type: "QPoint" }
         }
         Method {
             name: "QQmlPointValueType"
             isConstructor: true
+            lineNumber: 144
             Parameter { name: "point"; type: "QPointF" }
         }
     }
     Component {
         file: "qqmlproperty.h"
+        lineNumber: 23
         name: "QQmlProperty"
         accessSemantics: "value"
         Property {
@@ -1827,6 +2095,7 @@ Module {
             isPointer: true
             read: "object"
             index: 0
+            lineNumber: 28
             isReadonly: true
             isFinal: true
             isPropertyConstant: true
@@ -1836,13 +2105,29 @@ Module {
             type: "QString"
             read: "name"
             index: 1
+            lineNumber: 29
             isReadonly: true
             isFinal: true
             isPropertyConstant: true
         }
     }
     Component {
+        file: "qqmlpropertymap.h"
+        lineNumber: 21
+        name: "QQmlPropertyMap"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        Signal {
+            name: "valueChanged"
+            lineNumber: 52
+            Parameter { name: "key"; type: "QString" }
+            Parameter { name: "value"; type: "QVariant" }
+        }
+        Method { name: "keys"; type: "QStringList"; isMethodConstant: true; lineNumber: 41 }
+    }
+    Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 462
         name: "QByteArray"
         accessSemantics: "value"
         extension: "ArrayBuffer"
@@ -1850,12 +2135,14 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 470
         name: "QByteArrayList"
         accessSemantics: "sequence"
         valueType: "QByteArray"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 438
         name: "QChar"
         accessSemantics: "value"
         extension: "String"
@@ -1863,6 +2150,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 446
         name: "QDate"
         accessSemantics: "value"
         extension: "Date"
@@ -1870,23 +2158,27 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 509
         name: "QJSValue"
         accessSemantics: "value"
         extension: "QQmlQJSValueForeign"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 509
         name: "QQmlQJSValueForeign"
         accessSemantics: "value"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 556
         name: "QJsonArray"
         accessSemantics: "sequence"
         valueType: "QJsonValue"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 540
         name: "QJsonObject"
         accessSemantics: "value"
         extension: "Object"
@@ -1894,29 +2186,34 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 548
         name: "QJsonValue"
         accessSemantics: "value"
         extension: "QQmlQJsonValueForeign"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 548
         name: "QQmlQJsonValueForeign"
         accessSemantics: "value"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 494
         name: "QObjectList"
         accessSemantics: "sequence"
         valueType: "QObject"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 478
         name: "QStringList"
         accessSemantics: "sequence"
         valueType: "QString"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 454
         name: "QTime"
         accessSemantics: "value"
         extension: "Date"
@@ -1924,6 +2221,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 219
         name: "QVariantHash"
         accessSemantics: "value"
         extension: "Object"
@@ -1931,12 +2229,14 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 486
         name: "QVariantList"
         accessSemantics: "sequence"
         valueType: "QVariant"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 211
         name: "QVariantMap"
         accessSemantics: "value"
         extension: "Object"
@@ -1944,6 +2244,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 227
         name: "qint8"
         accessSemantics: "value"
         extension: "Number"
@@ -1951,6 +2252,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 343
         name: "qlonglong"
         aliases: ["qsizetype"]
         accessSemantics: "value"
@@ -1959,6 +2261,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 109
         name: "QObject"
         accessSemantics: "reference"
         extension: "Object"
@@ -1973,9 +2276,11 @@ Module {
             write: "setObjectName"
             notify: "objectNameChanged"
             index: 0
+            lineNumber: 109
         }
         Signal {
             name: "objectNameChanged"
+            lineNumber: 348
             Parameter { name: "objectName"; type: "QString" }
         }
         Method { name: "toString"; type: "QString"; isMethodConstant: true }
@@ -1987,12 +2292,14 @@ Module {
         Method {
             name: "QObject"
             isConstructor: true
+            lineNumber: 114
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
         }
-        Method { name: "QObject"; isCloned: true; isConstructor: true }
+        Method { name: "QObject"; isCloned: true; isConstructor: true; lineNumber: 114 }
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 242
         name: "quint8"
         accessSemantics: "value"
         extension: "Number"
@@ -2000,6 +2307,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 382
         name: "qulonglong"
         accessSemantics: "value"
         extension: "Number"
@@ -2007,6 +2315,7 @@ Module {
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 194
         name: "QRectF"
         accessSemantics: "value"
         extension: "QQmlRectFValueType"
@@ -2016,68 +2325,181 @@ Module {
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 194
         name: "QQmlRectFValueType"
         accessSemantics: "value"
-        Property { name: "x"; type: "double"; read: "x"; write: "setX"; index: 0; isFinal: true }
-        Property { name: "y"; type: "double"; read: "y"; write: "setY"; index: 1; isFinal: true }
-        Property { name: "width"; type: "double"; read: "width"; write: "setWidth"; index: 2; isFinal: true }
+        Property {
+            name: "x"
+            type: "double"
+            read: "x"
+            write: "setX"
+            index: 0
+            lineNumber: 196
+            isFinal: true
+        }
+        Property {
+            name: "y"
+            type: "double"
+            read: "y"
+            write: "setY"
+            index: 1
+            lineNumber: 197
+            isFinal: true
+        }
+        Property {
+            name: "width"
+            type: "double"
+            read: "width"
+            write: "setWidth"
+            index: 2
+            lineNumber: 198
+            isFinal: true
+        }
         Property {
             name: "height"
             type: "double"
             read: "height"
             write: "setHeight"
             index: 3
+            lineNumber: 199
             isFinal: true
         }
-        Property { name: "left"; type: "double"; read: "left"; index: 4; isReadonly: true; isFinal: true }
-        Property { name: "right"; type: "double"; read: "right"; index: 5; isReadonly: true; isFinal: true }
-        Property { name: "top"; type: "double"; read: "top"; index: 6; isReadonly: true; isFinal: true }
-        Property { name: "bottom"; type: "double"; read: "bottom"; index: 7; isReadonly: true; isFinal: true }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
-        Method { name: "QQmlRectFValueType"; isConstructor: true }
+        Property {
+            name: "left"
+            type: "double"
+            read: "left"
+            index: 4
+            lineNumber: 200
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "right"
+            type: "double"
+            read: "right"
+            index: 5
+            lineNumber: 201
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "top"
+            type: "double"
+            read: "top"
+            index: 6
+            lineNumber: 202
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "bottom"
+            type: "double"
+            read: "bottom"
+            index: 7
+            lineNumber: 203
+            isReadonly: true
+            isFinal: true
+        }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 214 }
+        Method { name: "QQmlRectFValueType"; isConstructor: true; lineNumber: 211 }
         Method {
             name: "QQmlRectFValueType"
             isConstructor: true
+            lineNumber: 212
             Parameter { name: "rect"; type: "QRectF" }
         }
         Method {
             name: "QQmlRectFValueType"
             isConstructor: true
+            lineNumber: 213
             Parameter { name: "rect"; type: "QRect" }
         }
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 231
         name: "QRect"
         accessSemantics: "value"
         extension: "QQmlRectValueType"
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 231
         name: "QQmlRectValueType"
         accessSemantics: "value"
-        Property { name: "x"; type: "int"; read: "x"; write: "setX"; index: 0; isFinal: true }
-        Property { name: "y"; type: "int"; read: "y"; write: "setY"; index: 1; isFinal: true }
-        Property { name: "width"; type: "int"; read: "width"; write: "setWidth"; index: 2; isFinal: true }
-        Property { name: "height"; type: "int"; read: "height"; write: "setHeight"; index: 3; isFinal: true }
-        Property { name: "left"; type: "int"; read: "left"; index: 4; isReadonly: true; isFinal: true }
-        Property { name: "right"; type: "int"; read: "right"; index: 5; isReadonly: true; isFinal: true }
-        Property { name: "top"; type: "int"; read: "top"; index: 6; isReadonly: true; isFinal: true }
-        Property { name: "bottom"; type: "int"; read: "bottom"; index: 7; isReadonly: true; isFinal: true }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Property { name: "x"; type: "int"; read: "x"; write: "setX"; index: 0; lineNumber: 233; isFinal: true }
+        Property { name: "y"; type: "int"; read: "y"; write: "setY"; index: 1; lineNumber: 234; isFinal: true }
+        Property {
+            name: "width"
+            type: "int"
+            read: "width"
+            write: "setWidth"
+            index: 2
+            lineNumber: 235
+            isFinal: true
+        }
+        Property {
+            name: "height"
+            type: "int"
+            read: "height"
+            write: "setHeight"
+            index: 3
+            lineNumber: 236
+            isFinal: true
+        }
+        Property {
+            name: "left"
+            type: "int"
+            read: "left"
+            index: 4
+            lineNumber: 237
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "right"
+            type: "int"
+            read: "right"
+            index: 5
+            lineNumber: 238
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "top"
+            type: "int"
+            read: "top"
+            index: 6
+            lineNumber: 239
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "bottom"
+            type: "int"
+            read: "bottom"
+            index: 7
+            lineNumber: 240
+            isReadonly: true
+            isFinal: true
+        }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 251 }
         Method {
             name: "QQmlRectValueType"
             isConstructor: true
+            lineNumber: 249
             Parameter { name: "rect"; type: "QRect" }
         }
         Method {
             name: "QQmlRectValueType"
             isConstructor: true
+            lineNumber: 250
             Parameter { name: "rect"; type: "QRectF" }
         }
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 194
         name: "QRegularExpression"
         accessSemantics: "value"
         extension: "RegExp"
@@ -2088,11 +2510,13 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 525
         name: "QQmlScriptString"
         accessSemantics: "value"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 277
         name: "short"
         accessSemantics: "value"
         extension: "Number"
@@ -2100,6 +2524,7 @@ Module {
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 152
         name: "QSizeF"
         accessSemantics: "value"
         extension: "QQmlSizeFValueType"
@@ -2109,56 +2534,89 @@ Module {
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 152
         name: "QQmlSizeFValueType"
         accessSemantics: "value"
-        Property { name: "width"; type: "double"; read: "width"; write: "setWidth"; index: 0; isFinal: true }
+        Property {
+            name: "width"
+            type: "double"
+            read: "width"
+            write: "setWidth"
+            index: 0
+            lineNumber: 154
+            isFinal: true
+        }
         Property {
             name: "height"
             type: "double"
             read: "height"
             write: "setHeight"
             index: 1
+            lineNumber: 155
             isFinal: true
         }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
-        Method { name: "QQmlSizeFValueType"; isConstructor: true }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 166 }
+        Method { name: "QQmlSizeFValueType"; isConstructor: true; lineNumber: 163 }
         Method {
             name: "QQmlSizeFValueType"
             isConstructor: true
+            lineNumber: 164
             Parameter { name: "size"; type: "QSizeF" }
         }
         Method {
             name: "QQmlSizeFValueType"
             isConstructor: true
+            lineNumber: 165
             Parameter { name: "size"; type: "QSize" }
         }
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 173
         name: "QSize"
         accessSemantics: "value"
         extension: "QQmlSizeValueType"
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 173
         name: "QQmlSizeValueType"
         accessSemantics: "value"
-        Property { name: "width"; type: "int"; read: "width"; write: "setWidth"; index: 0; isFinal: true }
-        Property { name: "height"; type: "int"; read: "height"; write: "setHeight"; index: 1; isFinal: true }
-        Method { name: "toString"; type: "QString"; isMethodConstant: true }
+        Property {
+            name: "width"
+            type: "int"
+            read: "width"
+            write: "setWidth"
+            index: 0
+            lineNumber: 175
+            isFinal: true
+        }
+        Property {
+            name: "height"
+            type: "int"
+            read: "height"
+            write: "setHeight"
+            index: 1
+            lineNumber: 176
+            isFinal: true
+        }
+        Method { name: "toString"; type: "QString"; isMethodConstant: true; lineNumber: 187 }
         Method {
             name: "QQmlSizeValueType"
             isConstructor: true
+            lineNumber: 185
             Parameter { name: "size"; type: "QSize" }
         }
         Method {
             name: "QQmlSizeValueType"
             isConstructor: true
+            lineNumber: 186
             Parameter { name: "size"; type: "QSizeF" }
         }
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 153
         name: "QString"
         accessSemantics: "value"
         extension: "String"
@@ -2169,6 +2627,7 @@ Module {
     }
     Component {
         file: "qqml.h"
+        lineNumber: 140
         name: "QQmlTypeNotAvailable"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -2178,6 +2637,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 321
         name: "uint"
         accessSemantics: "value"
         extension: "Number"
@@ -2185,6 +2645,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 185
         name: "QUrl"
         accessSemantics: "value"
         extension: "URL"
@@ -2195,6 +2656,7 @@ Module {
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 299
         name: "ushort"
         accessSemantics: "value"
         extension: "Number"
@@ -2202,28 +2664,33 @@ Module {
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 398
         name: "QQmlV4ExecutionEnginePtr"
         accessSemantics: "value"
         extension: "QQmlV4ExecutionEnginePtrForeign"
     }
     Component {
         file: "private/qqmlvaluetype_p.h"
+        lineNumber: 398
         name: "QQmlV4ExecutionEnginePtrForeign"
         accessSemantics: "value"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 532
         name: "QQmlV4FunctionPtr"
         accessSemantics: "value"
         extension: "QQmlV4FunctionPtrForeign"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 532
         name: "QQmlV4FunctionPtrForeign"
         accessSemantics: "value"
     }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 100
         name: "QVariant"
         accessSemantics: "value"
         extension: "QQmlVarForeign"
@@ -2231,9 +2698,15 @@ Module {
         isCreatable: false
         exportMetaObjectRevisions: [256]
     }
-    Component { file: "private/qqmlbuiltins_p.h"; name: "QQmlVarForeign"; accessSemantics: "value" }
     Component {
         file: "private/qqmlbuiltins_p.h"
+        lineNumber: 100
+        name: "QQmlVarForeign"
+        accessSemantics: "value"
+    }
+    Component {
+        file: "private/qqmlbuiltins_p.h"
+        lineNumber: 89
         name: "void"
         accessSemantics: "value"
         extension: "undefined"
@@ -2244,34 +2717,40 @@ Module {
     }
     Component {
         file: "private/qv4sequenceobject_p.h"
+        lineNumber: 180
         name: "QList<qreal>"
         accessSemantics: "sequence"
         valueType: "double"
     }
     Component {
         file: "private/qv4sequenceobject_p.h"
+        lineNumber: 179
         name: "std::vector<qreal>"
         accessSemantics: "sequence"
         valueType: "double"
     }
     Component {
         file: "private/qv4sequenceobject_p.h"
+        lineNumber: 187
         name: "std::vector<QString>"
         accessSemantics: "sequence"
         valueType: "QString"
     }
     Component {
         file: "private/qv4sequenceobject_p.h"
+        lineNumber: 188
         name: "std::vector<QUrl>"
         accessSemantics: "sequence"
         valueType: "QUrl"
     }
     Component {
         file: "qnamespace.h"
+        lineNumber: 26
         name: "Qt"
         accessSemantics: "none"
         Enum {
             name: "GlobalColor"
+            lineNumber: 29
             values: [
                 "color0",
                 "color1",
@@ -2298,12 +2777,20 @@ Module {
         Enum {
             name: "ColorScheme"
             isScoped: true
+            lineNumber: 52
             values: ["Unknown", "Light", "Dark"]
+        }
+        Enum {
+            name: "ContrastPreference"
+            isScoped: true
+            lineNumber: 58
+            values: ["NoPreference", "HighContrast"]
         }
         Enum {
             name: "MouseButtons"
             alias: "MouseButton"
             isFlag: true
+            lineNumber: 63
             values: [
                 "NoButton",
                 "LeftButton",
@@ -2345,16 +2832,19 @@ Module {
         }
         Enum {
             name: "Orientation"
+            lineNumber: 105
             values: ["Horizontal", "Vertical"]
         }
         Enum {
             name: "Orientations"
             alias: "Orientation"
             isFlag: true
+            lineNumber: 105
             values: ["Horizontal", "Vertical"]
         }
         Enum {
             name: "FocusPolicy"
+            lineNumber: 113
             values: [
                 "NoFocus",
                 "TabFocus",
@@ -2365,6 +2855,7 @@ Module {
         }
         Enum {
             name: "TabFocusBehavior"
+            lineNumber: 121
             values: [
                 "NoTabFocus",
                 "TabFocusTextControls",
@@ -2374,18 +2865,21 @@ Module {
         }
         Enum {
             name: "SortOrder"
+            lineNumber: 128
             values: ["AscendingOrder", "DescendingOrder"]
         }
         Enum {
             name: "SplitBehavior"
             alias: "SplitBehaviorFlags"
             isFlag: true
+            lineNumber: 133
             values: ["KeepEmptyParts", "SkipEmptyParts"]
         }
         Enum {
             name: "Alignment"
             alias: "AlignmentFlag"
             isFlag: true
+            lineNumber: 150
             values: [
                 "AlignLeft",
                 "AlignLeading",
@@ -2405,6 +2899,7 @@ Module {
         }
         Enum {
             name: "TextFlag"
+            lineNumber: 176
             values: [
                 "TextSingleLine",
                 "TextDontClip",
@@ -2423,10 +2918,12 @@ Module {
         }
         Enum {
             name: "TextElideMode"
+            lineNumber: 195
             values: ["ElideLeft", "ElideRight", "ElideMiddle", "ElideNone"]
         }
         Enum {
             name: "WindowType"
+            lineNumber: 212
             values: [
                 "Widget",
                 "Window",
@@ -2474,6 +2971,7 @@ Module {
             name: "WindowFlags"
             alias: "WindowType"
             isFlag: true
+            lineNumber: 212
             values: [
                 "Widget",
                 "Window",
@@ -2519,6 +3017,7 @@ Module {
         }
         Enum {
             name: "WindowState"
+            lineNumber: 269
             values: [
                 "WindowNoState",
                 "WindowMinimized",
@@ -2531,6 +3030,7 @@ Module {
             name: "WindowStates"
             alias: "WindowState"
             isFlag: true
+            lineNumber: 269
             values: [
                 "WindowNoState",
                 "WindowMinimized",
@@ -2541,6 +3041,7 @@ Module {
         }
         Enum {
             name: "ApplicationState"
+            lineNumber: 280
             values: [
                 "ApplicationSuspended",
                 "ApplicationHidden",
@@ -2550,6 +3051,7 @@ Module {
         }
         Enum {
             name: "ScreenOrientation"
+            lineNumber: 289
             values: [
                 "PrimaryOrientation",
                 "PortraitOrientation",
@@ -2562,6 +3064,7 @@ Module {
             name: "ScreenOrientations"
             alias: "ScreenOrientation"
             isFlag: true
+            lineNumber: 289
             values: [
                 "PrimaryOrientation",
                 "PortraitOrientation",
@@ -2572,6 +3075,7 @@ Module {
         }
         Enum {
             name: "WidgetAttribute"
+            lineNumber: 300
             values: [
                 "WA_Disabled",
                 "WA_UnderMouse",
@@ -2680,6 +3184,7 @@ Module {
         }
         Enum {
             name: "ApplicationAttribute"
+            lineNumber: 441
             values: [
                 "AA_QtQuickUseDefaultSizePolicy",
                 "AA_DontShowIconsInMenus",
@@ -2718,6 +3223,7 @@ Module {
             name: "ImageConversionFlags"
             alias: "ImageConversionFlag"
             isFlag: true
+            lineNumber: 494
             values: [
                 "ColorMode_Mask",
                 "AutoColor",
@@ -2742,10 +3248,12 @@ Module {
         }
         Enum {
             name: "BGMode"
+            lineNumber: 524
             values: ["TransparentMode", "OpaqueMode"]
         }
         Enum {
             name: "Key"
+            lineNumber: 529
             values: [
                 "Key_Space",
                 "Key_Any",
@@ -3188,6 +3696,7 @@ Module {
                 "Key_Settings",
                 "Key_MicVolumeUp",
                 "Key_MicVolumeDown",
+                "Key_Keyboard",
                 "Key_New",
                 "Key_Open",
                 "Key_Find",
@@ -3221,6 +3730,7 @@ Module {
         }
         Enum {
             name: "KeyboardModifier"
+            lineNumber: 1072
             values: [
                 "NoModifier",
                 "ShiftModifier",
@@ -3236,6 +3746,7 @@ Module {
             name: "KeyboardModifiers"
             alias: "KeyboardModifier"
             isFlag: true
+            lineNumber: 1072
             values: [
                 "NoModifier",
                 "ShiftModifier",
@@ -3249,16 +3760,19 @@ Module {
         }
         Enum {
             name: "Modifier"
+            lineNumber: 1092
             values: ["META", "SHIFT", "CTRL", "ALT", "MODIFIER_MASK"]
         }
         Enum {
             name: "Modifiers"
             alias: "Modifier"
             isFlag: true
+            lineNumber: 1092
             values: ["META", "SHIFT", "CTRL", "ALT", "MODIFIER_MASK"]
         }
         Enum {
             name: "ArrowType"
+            lineNumber: 1102
             values: [
                 "NoArrow",
                 "UpArrow",
@@ -3269,6 +3783,7 @@ Module {
         }
         Enum {
             name: "PenStyle"
+            lineNumber: 1110
             values: [
                 "NoPen",
                 "SolidLine",
@@ -3281,10 +3796,12 @@ Module {
         }
         Enum {
             name: "PenCapStyle"
+            lineNumber: 1123
             values: ["FlatCap", "SquareCap", "RoundCap", "MPenCapStyle"]
         }
         Enum {
             name: "PenJoinStyle"
+            lineNumber: 1130
             values: [
                 "MiterJoin",
                 "BevelJoin",
@@ -3295,6 +3812,7 @@ Module {
         }
         Enum {
             name: "BrushStyle"
+            lineNumber: 1138
             values: [
                 "NoBrush",
                 "SolidPattern",
@@ -3319,10 +3837,12 @@ Module {
         }
         Enum {
             name: "SizeMode"
+            lineNumber: 1160
             values: ["AbsoluteSize", "RelativeSize"]
         }
         Enum {
             name: "CursorShape"
+            lineNumber: 1175
             values: [
                 "ArrowCursor",
                 "UpArrowCursor",
@@ -3353,10 +3873,12 @@ Module {
         }
         Enum {
             name: "TextFormat"
+            lineNumber: 1208
             values: ["PlainText", "RichText", "AutoText", "MarkdownText"]
         }
         Enum {
             name: "AspectRatioMode"
+            lineNumber: 1215
             values: [
                 "IgnoreAspectRatio",
                 "KeepAspectRatio",
@@ -3365,6 +3887,7 @@ Module {
         }
         Enum {
             name: "DockWidgetArea"
+            lineNumber: 1221
             values: [
                 "LeftDockWidgetArea",
                 "RightDockWidgetArea",
@@ -3379,6 +3902,7 @@ Module {
             name: "DockWidgetAreas"
             alias: "DockWidgetArea"
             isFlag: true
+            lineNumber: 1221
             values: [
                 "LeftDockWidgetArea",
                 "RightDockWidgetArea",
@@ -3391,6 +3915,7 @@ Module {
         }
         Enum {
             name: "ToolBarArea"
+            lineNumber: 1238
             values: [
                 "LeftToolBarArea",
                 "RightToolBarArea",
@@ -3405,6 +3930,7 @@ Module {
             name: "ToolBarAreas"
             alias: "ToolBarArea"
             isFlag: true
+            lineNumber: 1238
             values: [
                 "LeftToolBarArea",
                 "RightToolBarArea",
@@ -3417,14 +3943,17 @@ Module {
         }
         Enum {
             name: "DateFormat"
+            lineNumber: 1256
             values: ["TextDate", "ISODate", "RFC2822Date", "ISODateWithMs"]
         }
         Enum {
             name: "TimeSpec"
+            lineNumber: 1263
             values: ["LocalTime", "UTC", "OffsetFromUTC", "TimeZone"]
         }
         Enum {
             name: "DayOfWeek"
+            lineNumber: 1270
             values: [
                 "Monday",
                 "Tuesday",
@@ -3437,6 +3966,7 @@ Module {
         }
         Enum {
             name: "ScrollBarPolicy"
+            lineNumber: 1280
             values: [
                 "ScrollBarAsNeeded",
                 "ScrollBarAlwaysOff",
@@ -3445,10 +3975,12 @@ Module {
         }
         Enum {
             name: "CaseSensitivity"
+            lineNumber: 1286
             values: ["CaseInsensitive", "CaseSensitive"]
         }
         Enum {
             name: "Corner"
+            lineNumber: 1291
             values: [
                 "TopLeftCorner",
                 "TopRightCorner",
@@ -3458,16 +3990,19 @@ Module {
         }
         Enum {
             name: "Edge"
+            lineNumber: 1298
             values: ["TopEdge", "LeftEdge", "RightEdge", "BottomEdge"]
         }
         Enum {
             name: "Edges"
             alias: "Edge"
             isFlag: true
+            lineNumber: 1298
             values: ["TopEdge", "LeftEdge", "RightEdge", "BottomEdge"]
         }
         Enum {
             name: "ConnectionType"
+            lineNumber: 1308
             values: [
                 "AutoConnection",
                 "DirectConnection",
@@ -3479,6 +4014,7 @@ Module {
         }
         Enum {
             name: "ShortcutContext"
+            lineNumber: 1317
             values: [
                 "WidgetShortcut",
                 "WindowShortcut",
@@ -3488,18 +4024,22 @@ Module {
         }
         Enum {
             name: "FillRule"
+            lineNumber: 1324
             values: ["OddEvenFill", "WindingFill"]
         }
         Enum {
             name: "MaskMode"
+            lineNumber: 1329
             values: ["MaskInColor", "MaskOutColor"]
         }
         Enum {
             name: "ClipOperation"
+            lineNumber: 1334
             values: ["NoClip", "ReplaceClip", "IntersectClip"]
         }
         Enum {
             name: "ItemSelectionMode"
+            lineNumber: 1341
             values: [
                 "ContainsItemShape",
                 "IntersectsItemShape",
@@ -3509,18 +4049,22 @@ Module {
         }
         Enum {
             name: "ItemSelectionOperation"
+            lineNumber: 1348
             values: ["ReplaceSelection", "AddToSelection"]
         }
         Enum {
             name: "TransformationMode"
+            lineNumber: 1353
             values: ["FastTransformation", "SmoothTransformation"]
         }
         Enum {
             name: "Axis"
+            lineNumber: 1358
             values: ["XAxis", "YAxis", "ZAxis"]
         }
         Enum {
             name: "FocusReason"
+            lineNumber: 1364
             values: [
                 "MouseFocusReason",
                 "TabFocusReason",
@@ -3535,6 +4079,7 @@ Module {
         }
         Enum {
             name: "ContextMenuPolicy"
+            lineNumber: 1376
             values: [
                 "NoContextMenu",
                 "DefaultContextMenu",
@@ -3546,10 +4091,12 @@ Module {
         Enum {
             name: "ContextMenuTrigger"
             isScoped: true
+            lineNumber: 1384
             values: ["Press", "Release"]
         }
         Enum {
             name: "InputMethodQuery"
+            lineNumber: 1389
             values: [
                 "ImEnabled",
                 "ImCursorRectangle",
@@ -3577,6 +4124,7 @@ Module {
             name: "InputMethodQueries"
             alias: "InputMethodQuery"
             isFlag: true
+            lineNumber: 1389
             values: [
                 "ImEnabled",
                 "ImCursorRectangle",
@@ -3602,6 +4150,7 @@ Module {
         }
         Enum {
             name: "InputMethodHint"
+            lineNumber: 1417
             values: [
                 "ImhNone",
                 "ImhHiddenText",
@@ -3632,6 +4181,7 @@ Module {
             name: "InputMethodHints"
             alias: "InputMethodHint"
             isFlag: true
+            lineNumber: 1417
             values: [
                 "ImhNone",
                 "ImhHiddenText",
@@ -3660,6 +4210,7 @@ Module {
         }
         Enum {
             name: "EnterKeyType"
+            lineNumber: 1452
             values: [
                 "EnterKeyDefault",
                 "EnterKeyReturn",
@@ -3673,6 +4224,7 @@ Module {
         }
         Enum {
             name: "ToolButtonStyle"
+            lineNumber: 1463
             values: [
                 "ToolButtonIconOnly",
                 "ToolButtonTextOnly",
@@ -3683,10 +4235,12 @@ Module {
         }
         Enum {
             name: "LayoutDirection"
+            lineNumber: 1471
             values: ["LeftToRight", "RightToLeft", "LayoutDirectionAuto"]
         }
         Enum {
             name: "DropAction"
+            lineNumber: 1493
             values: [
                 "CopyAction",
                 "MoveAction",
@@ -3700,6 +4254,7 @@ Module {
             name: "DropActions"
             alias: "DropAction"
             isFlag: true
+            lineNumber: 1493
             values: [
                 "CopyAction",
                 "MoveAction",
@@ -3711,10 +4266,12 @@ Module {
         }
         Enum {
             name: "CheckState"
+            lineNumber: 1504
             values: ["Unchecked", "PartiallyChecked", "Checked"]
         }
         Enum {
             name: "ItemDataRole"
+            lineNumber: 1510
             values: [
                 "DisplayRole",
                 "DecorationRole",
@@ -3736,13 +4293,19 @@ Module {
                 "ToolTipPropertyRole",
                 "StatusTipPropertyRole",
                 "WhatsThisPropertyRole",
-                "UserRole"
+                "RangeModelDataRole",
+                "RangeModelAdapterRole",
+                "UserRole",
+                "StandardItemFlagsRole",
+                "FileInfoRole",
+                "RemoteObjectsCacheRole"
             ]
         }
         Enum {
             name: "ItemFlags"
             alias: "ItemFlag"
             isFlag: true
+            lineNumber: 1549
             values: [
                 "NoItemFlags",
                 "ItemIsSelectable",
@@ -3760,6 +4323,7 @@ Module {
             name: "MatchFlags"
             alias: "MatchFlag"
             isFlag: true
+            lineNumber: 1564
             values: [
                 "MatchExactly",
                 "MatchContains",
@@ -3776,10 +4340,12 @@ Module {
         }
         Enum {
             name: "WindowModality"
+            lineNumber: 1582
             values: ["NonModal", "WindowModal", "ApplicationModal"]
         }
         Enum {
             name: "TextInteractionFlag"
+            lineNumber: 1588
             values: [
                 "NoTextInteraction",
                 "TextSelectableByMouse",
@@ -3795,6 +4361,7 @@ Module {
             name: "TextInteractionFlags"
             alias: "TextInteractionFlag"
             isFlag: true
+            lineNumber: 1588
             values: [
                 "NoTextInteraction",
                 "TextSelectableByMouse",
@@ -3808,6 +4375,7 @@ Module {
         }
         Enum {
             name: "SizeHint"
+            lineNumber: 1608
             values: [
                 "MinimumSize",
                 "PreferredSize",
@@ -3820,6 +4388,7 @@ Module {
             name: "TouchPointStates"
             alias: "TouchPointState"
             isFlag: true
+            lineNumber: 1641
             values: [
                 "TouchPointUnknownState",
                 "TouchPointPressed",
@@ -3830,6 +4399,7 @@ Module {
         }
         Enum {
             name: "GestureState"
+            lineNumber: 1652
             values: [
                 "NoGesture",
                 "GestureStarted",
@@ -3840,6 +4410,7 @@ Module {
         }
         Enum {
             name: "GestureType"
+            lineNumber: 1661
             values: [
                 "TapGesture",
                 "TapAndHoldGesture",
@@ -3852,6 +4423,7 @@ Module {
         }
         Enum {
             name: "NativeGestureType"
+            lineNumber: 1683
             values: [
                 "BeginNativeGesture",
                 "EndNativeGesture",
@@ -3864,19 +4436,23 @@ Module {
         }
         Enum {
             name: "CursorMoveStyle"
+            lineNumber: 1705
             values: ["LogicalMoveStyle", "VisualMoveStyle"]
         }
         Enum {
             name: "TimerType"
+            lineNumber: 1710
             values: ["PreciseTimer", "CoarseTimer", "VeryCoarseTimer"]
         }
         Enum {
             name: "TimerId"
             isScoped: true
+            lineNumber: 1716
             values: ["Invalid"]
         }
         Enum {
             name: "ScrollPhase"
+            lineNumber: 1720
             values: [
                 "NoScrollPhase",
                 "ScrollBegin",
@@ -3887,6 +4463,7 @@ Module {
         }
         Enum {
             name: "MouseEventSource"
+            lineNumber: 1728
             values: [
                 "MouseEventNotSynthesized",
                 "MouseEventSynthesizedBySystem",
@@ -3898,6 +4475,7 @@ Module {
             name: "MouseEventFlags"
             alias: "MouseEventFlag"
             isFlag: true
+            lineNumber: 1735
             values: [
                 "NoMouseEventFlag",
                 "MouseEventCreatedDoubleClick",
@@ -3906,11 +4484,13 @@ Module {
         }
         Enum {
             name: "ChecksumType"
+            lineNumber: 1743
             values: ["ChecksumIso3309", "ChecksumItuV41"]
         }
         Enum {
             name: "HighDpiScaleFactorRoundingPolicy"
             isScoped: true
+            lineNumber: 1748
             values: [
                 "Unset",
                 "Round",
@@ -3923,11 +4503,13 @@ Module {
         Enum {
             name: "PermissionStatus"
             isScoped: true
+            lineNumber: 1757
             values: ["Undetermined", "Granted", "Denied"]
         }
     }
     Component {
         file: "private/qqmlbuiltinfunctions_p.h"
+        lineNumber: 44
         name: "QtObject"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -3939,6 +4521,7 @@ Module {
         exportMetaObjectRevisions: [256]
         Enum {
             name: "LoadingMode"
+            lineNumber: 63
             values: ["Asynchronous", "Synchronous"]
         }
         Property {
@@ -3947,6 +4530,7 @@ Module {
             isPointer: true
             read: "application"
             index: 0
+            lineNumber: 47
             isReadonly: true
             isPropertyConstant: true
         }
@@ -3956,6 +4540,7 @@ Module {
             isPointer: true
             read: "platform"
             index: 1
+            lineNumber: 48
             isReadonly: true
             isPropertyConstant: true
         }
@@ -3965,6 +4550,7 @@ Module {
             isPointer: true
             read: "inputMethod"
             index: 2
+            lineNumber: 49
             isReadonly: true
             isPropertyConstant: true
         }
@@ -3974,6 +4560,7 @@ Module {
             isPointer: true
             read: "styleHints"
             index: 3
+            lineNumber: 50
             isReadonly: true
             isPropertyConstant: true
         }
@@ -3983,12 +4570,16 @@ Module {
             bindable: "uiLanguageBindable"
             read: "uiLanguage"
             write: "setUiLanguage"
+            notify: "uiLanguageChanged"
             index: 4
+            lineNumber: 53
         }
+        Signal { name: "uiLanguageChanged"; lineNumber: 182 }
         Method {
             name: "include"
             type: "QJSValue"
             isMethodConstant: true
+            lineNumber: 68
             Parameter { name: "url"; type: "QString" }
             Parameter { name: "callback"; type: "QJSValue" }
         }
@@ -3997,24 +4588,28 @@ Module {
             type: "QJSValue"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 68
             Parameter { name: "url"; type: "QString" }
         }
         Method {
             name: "isQtObject"
             type: "bool"
             isMethodConstant: true
+            lineNumber: 69
             Parameter { name: "value"; type: "QJSValue" }
         }
         Method {
             name: "color"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 71
             Parameter { name: "name"; type: "QString" }
         }
         Method {
             name: "rgba"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 72
             Parameter { name: "r"; type: "double" }
             Parameter { name: "g"; type: "double" }
             Parameter { name: "b"; type: "double" }
@@ -4025,6 +4620,7 @@ Module {
             type: "QVariant"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 72
             Parameter { name: "r"; type: "double" }
             Parameter { name: "g"; type: "double" }
             Parameter { name: "b"; type: "double" }
@@ -4033,6 +4629,7 @@ Module {
             name: "hsla"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 73
             Parameter { name: "h"; type: "double" }
             Parameter { name: "s"; type: "double" }
             Parameter { name: "l"; type: "double" }
@@ -4043,6 +4640,7 @@ Module {
             type: "QVariant"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 73
             Parameter { name: "h"; type: "double" }
             Parameter { name: "s"; type: "double" }
             Parameter { name: "l"; type: "double" }
@@ -4051,6 +4649,7 @@ Module {
             name: "hsva"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 74
             Parameter { name: "h"; type: "double" }
             Parameter { name: "s"; type: "double" }
             Parameter { name: "v"; type: "double" }
@@ -4061,6 +4660,7 @@ Module {
             type: "QVariant"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 74
             Parameter { name: "h"; type: "double" }
             Parameter { name: "s"; type: "double" }
             Parameter { name: "v"; type: "double" }
@@ -4069,6 +4669,7 @@ Module {
             name: "colorEqual"
             type: "bool"
             isMethodConstant: true
+            lineNumber: 75
             Parameter { name: "lhs"; type: "QVariant" }
             Parameter { name: "rhs"; type: "QVariant" }
         }
@@ -4076,6 +4677,7 @@ Module {
             name: "rect"
             type: "QRectF"
             isMethodConstant: true
+            lineNumber: 77
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "width"; type: "double" }
@@ -4085,6 +4687,7 @@ Module {
             name: "point"
             type: "QPointF"
             isMethodConstant: true
+            lineNumber: 78
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -4092,6 +4695,7 @@ Module {
             name: "size"
             type: "QSizeF"
             isMethodConstant: true
+            lineNumber: 79
             Parameter { name: "width"; type: "double" }
             Parameter { name: "height"; type: "double" }
         }
@@ -4099,6 +4703,7 @@ Module {
             name: "vector2d"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 80
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
         }
@@ -4106,6 +4711,7 @@ Module {
             name: "vector3d"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 81
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "z"; type: "double" }
@@ -4114,6 +4720,7 @@ Module {
             name: "vector4d"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 82
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "z"; type: "double" }
@@ -4123,16 +4730,18 @@ Module {
             name: "quaternion"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 83
             Parameter { name: "scalar"; type: "double" }
             Parameter { name: "x"; type: "double" }
             Parameter { name: "y"; type: "double" }
             Parameter { name: "z"; type: "double" }
         }
-        Method { name: "matrix4x4"; type: "QVariant"; isMethodConstant: true }
+        Method { name: "matrix4x4"; type: "QVariant"; isMethodConstant: true; lineNumber: 85 }
         Method {
             name: "matrix4x4"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 86
             Parameter { name: "m11"; type: "double" }
             Parameter { name: "m12"; type: "double" }
             Parameter { name: "m13"; type: "double" }
@@ -4154,12 +4763,14 @@ Module {
             name: "matrix4x4"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 90
             Parameter { name: "value"; type: "QJSValue" }
         }
         Method {
             name: "lighter"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 92
             Parameter { name: "color"; type: "QJSValue" }
             Parameter { name: "factor"; type: "double" }
         }
@@ -4168,12 +4779,14 @@ Module {
             type: "QVariant"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 92
             Parameter { name: "color"; type: "QJSValue" }
         }
         Method {
             name: "darker"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 93
             Parameter { name: "color"; type: "QJSValue" }
             Parameter { name: "factor"; type: "double" }
         }
@@ -4182,12 +4795,14 @@ Module {
             type: "QVariant"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 93
             Parameter { name: "color"; type: "QJSValue" }
         }
         Method {
             name: "alpha"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 94
             Parameter { name: "baseColor"; type: "QJSValue" }
             Parameter { name: "value"; type: "double" }
         }
@@ -4195,6 +4810,7 @@ Module {
             name: "tint"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 95
             Parameter { name: "baseColor"; type: "QJSValue" }
             Parameter { name: "tintColor"; type: "QJSValue" }
         }
@@ -4202,6 +4818,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 97
             Parameter { name: "date"; type: "QDate" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -4209,6 +4826,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 98
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -4216,6 +4834,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 99
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -4223,6 +4842,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 100
             Parameter { name: "date"; type: "QDate" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
@@ -4230,6 +4850,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 101
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
@@ -4237,6 +4858,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 102
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
@@ -4244,6 +4866,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 104
             Parameter { name: "time"; type: "QTime" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -4251,6 +4874,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 105
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -4258,6 +4882,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 106
             Parameter { name: "time"; type: "QString" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -4265,6 +4890,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 107
             Parameter { name: "time"; type: "QTime" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
@@ -4272,6 +4898,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 108
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
@@ -4279,6 +4906,7 @@ Module {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 109
             Parameter { name: "time"; type: "QString" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
@@ -4286,6 +4914,7 @@ Module {
             name: "formatDateTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 111
             Parameter { name: "date"; type: "QDateTime" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -4293,6 +4922,7 @@ Module {
             name: "formatDateTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 112
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "format"; type: "QString" }
         }
@@ -4300,6 +4930,7 @@ Module {
             name: "formatDateTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 113
             Parameter { name: "date"; type: "QDateTime" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
@@ -4307,6 +4938,7 @@ Module {
             name: "formatDateTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 114
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "format"; type: "Qt::DateFormat" }
         }
@@ -4314,6 +4946,7 @@ Module {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 117
             Parameter { name: "date"; type: "QDate" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4323,6 +4956,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 117
             Parameter { name: "date"; type: "QDate" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4331,12 +4965,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 117
             Parameter { name: "date"; type: "QDate" }
         }
         Method {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 119
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4346,6 +4982,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 119
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4354,12 +4991,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 119
             Parameter { name: "dateTime"; type: "QDateTime" }
         }
         Method {
             name: "formatDate"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 121
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4369,6 +5008,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 121
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4377,12 +5017,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 121
             Parameter { name: "string"; type: "QString" }
         }
         Method {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 123
             Parameter { name: "time"; type: "QTime" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4392,6 +5034,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 123
             Parameter { name: "time"; type: "QTime" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4400,12 +5043,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 123
             Parameter { name: "time"; type: "QTime" }
         }
         Method {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 125
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4415,6 +5060,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 125
             Parameter { name: "dateTime"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4423,12 +5069,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 125
             Parameter { name: "dateTime"; type: "QDateTime" }
         }
         Method {
             name: "formatTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 127
             Parameter { name: "time"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4438,6 +5086,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 127
             Parameter { name: "time"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4446,12 +5095,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 127
             Parameter { name: "time"; type: "QString" }
         }
         Method {
             name: "formatDateTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 129
             Parameter { name: "date"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4461,6 +5112,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 129
             Parameter { name: "date"; type: "QDateTime" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4469,12 +5121,14 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 129
             Parameter { name: "date"; type: "QDateTime" }
         }
         Method {
             name: "formatDateTime"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 131
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
             Parameter { name: "formatType"; type: "QLocale::FormatType" }
@@ -4484,6 +5138,7 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 131
             Parameter { name: "string"; type: "QString" }
             Parameter { name: "locale"; type: "QLocale" }
         }
@@ -4492,31 +5147,36 @@ Module {
             type: "QString"
             isCloned: true
             isMethodConstant: true
+            lineNumber: 131
             Parameter { name: "string"; type: "QString" }
         }
-        Method { name: "locale"; type: "QLocale"; isMethodConstant: true }
+        Method { name: "locale"; type: "QLocale"; isMethodConstant: true; lineNumber: 133 }
         Method {
             name: "locale"
             type: "QLocale"
             isMethodConstant: true
+            lineNumber: 134
             Parameter { name: "name"; type: "QString" }
         }
         Method {
             name: "url"
             type: "QUrl"
             isMethodConstant: true
+            lineNumber: 137
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "resolvedUrl"
             type: "QUrl"
             isMethodConstant: true
+            lineNumber: 138
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "resolvedUrl"
             type: "QUrl"
             isMethodConstant: true
+            lineNumber: 139
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "context"; type: "QObject"; isPointer: true }
         }
@@ -4524,37 +5184,71 @@ Module {
             name: "openUrlExternally"
             type: "bool"
             isMethodConstant: true
+            lineNumber: 140
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
             name: "font"
             type: "QVariant"
             isMethodConstant: true
+            lineNumber: 142
             Parameter { name: "fontSpecifier"; type: "QJSValue" }
         }
-        Method { name: "fontFamilies"; type: "QStringList"; isMethodConstant: true }
+        Method { name: "fontFamilies"; type: "QStringList"; isMethodConstant: true; lineNumber: 143 }
         Method {
             name: "md5"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 145
             Parameter { name: "data"; type: "QString" }
         }
         Method {
             name: "btoa"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 146
             Parameter { name: "data"; type: "QString" }
         }
         Method {
             name: "atob"
             type: "QString"
             isMethodConstant: true
+            lineNumber: 147
             Parameter { name: "data"; type: "QString" }
         }
-        Method { name: "quit"; isMethodConstant: true }
+        Method {
+            name: "btoa"
+            type: "QByteArray"
+            isMethodConstant: true
+            lineNumber: 149
+            Parameter { name: "data"; type: "QByteArray" }
+        }
+        Method {
+            name: "atob"
+            type: "QByteArray"
+            isMethodConstant: true
+            lineNumber: 150
+            Parameter { name: "data"; type: "QByteArray" }
+        }
+        Method {
+            name: "btoa"
+            type: "QByteArray"
+            isMethodConstant: true
+            lineNumber: 152
+            Parameter { name: "data"; type: "QVariantList" }
+        }
+        Method {
+            name: "atob"
+            type: "QByteArray"
+            isMethodConstant: true
+            lineNumber: 153
+            Parameter { name: "data"; type: "QVariantList" }
+        }
+        Method { name: "quit"; isMethodConstant: true; lineNumber: 155 }
         Method {
             name: "exit"
             isMethodConstant: true
+            lineNumber: 156
             Parameter { name: "retCode"; type: "int" }
         }
         Method {
@@ -4562,6 +5256,7 @@ Module {
             type: "QObject"
             isPointer: true
             isMethodConstant: true
+            lineNumber: 158
             Parameter { name: "qml"; type: "QString" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
             Parameter { name: "url"; type: "QUrl" }
@@ -4572,6 +5267,7 @@ Module {
             isPointer: true
             isCloned: true
             isMethodConstant: true
+            lineNumber: 158
             Parameter { name: "qml"; type: "QString" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
         }
@@ -4580,6 +5276,7 @@ Module {
             type: "QQmlComponent"
             isPointer: true
             isMethodConstant: true
+            lineNumber: 160
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
         }
@@ -4588,6 +5285,7 @@ Module {
             type: "QQmlComponent"
             isPointer: true
             isMethodConstant: true
+            lineNumber: 161
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
@@ -4598,6 +5296,7 @@ Module {
             isPointer: true
             isCloned: true
             isMethodConstant: true
+            lineNumber: 161
             Parameter { name: "url"; type: "QUrl" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
         }
@@ -4607,6 +5306,7 @@ Module {
             isPointer: true
             isCloned: true
             isMethodConstant: true
+            lineNumber: 161
             Parameter { name: "url"; type: "QUrl" }
         }
         Method {
@@ -4614,6 +5314,7 @@ Module {
             type: "QQmlComponent"
             isPointer: true
             isMethodConstant: true
+            lineNumber: 165
             Parameter { name: "moduleUri"; type: "QString" }
             Parameter { name: "typeName"; type: "QString" }
             Parameter { name: "parent"; type: "QObject"; isPointer: true }
@@ -4623,6 +5324,7 @@ Module {
             type: "QQmlComponent"
             isPointer: true
             isMethodConstant: true
+            lineNumber: 167
             Parameter { name: "moduleUri"; type: "QString" }
             Parameter { name: "typeName"; type: "QString" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
@@ -4634,6 +5336,7 @@ Module {
             isPointer: true
             isCloned: true
             isMethodConstant: true
+            lineNumber: 167
             Parameter { name: "moduleUri"; type: "QString" }
             Parameter { name: "typeName"; type: "QString" }
             Parameter { name: "mode"; type: "QQmlComponent::CompilationMode" }
@@ -4644,6 +5347,7 @@ Module {
             isPointer: true
             isCloned: true
             isMethodConstant: true
+            lineNumber: 167
             Parameter { name: "moduleUri"; type: "QString" }
             Parameter { name: "typeName"; type: "QString" }
         }
@@ -4651,8 +5355,30 @@ Module {
             name: "binding"
             type: "QJSValue"
             isMethodConstant: true
+            lineNumber: 171
             Parameter { name: "function"; type: "QJSValue" }
         }
-        Method { name: "callLater"; isJavaScriptFunction: true }
+        Method { name: "callLater"; isJavaScriptFunction: true; lineNumber: 172 }
+        Method {
+            name: "enumStringToValue"
+            type: "double"
+            lineNumber: 174
+            Parameter { name: "enumType"; type: "QJSManagedValue" }
+            Parameter { name: "string"; type: "QString" }
+        }
+        Method {
+            name: "enumValueToString"
+            type: "QString"
+            lineNumber: 175
+            Parameter { name: "enumType"; type: "QJSManagedValue" }
+            Parameter { name: "value"; type: "double" }
+        }
+        Method {
+            name: "enumValueToStrings"
+            type: "QStringList"
+            lineNumber: 176
+            Parameter { name: "enumType"; type: "QJSManagedValue" }
+            Parameter { name: "value"; type: "double" }
+        }
     }
 }

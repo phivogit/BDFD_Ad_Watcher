@@ -8,6 +8,7 @@ import QtQuick.tooling 1.2
 Module {
     Component {
         file: "private/qquickuniversalbusyindicator_p.h"
+        lineNumber: 25
         name: "QQuickUniversalBusyIndicator"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -24,11 +25,28 @@ Module {
             "QtQuick.Controls.Universal.impl/BusyIndicatorImpl 6.7"
         ]
         exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
-        Property { name: "count"; type: "int"; read: "count"; write: "setCount"; index: 0; isFinal: true }
-        Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 1; isFinal: true }
+        Property {
+            name: "count"
+            type: "int"
+            read: "count"
+            write: "setCount"
+            index: 0
+            lineNumber: 28
+            isFinal: true
+        }
+        Property {
+            name: "color"
+            type: "QColor"
+            read: "color"
+            write: "setColor"
+            index: 1
+            lineNumber: 29
+            isFinal: true
+        }
     }
     Component {
         file: "private/qquickuniversalfocusrectangle_p.h"
+        lineNumber: 24
         name: "QQuickUniversalFocusRectangle"
         accessSemantics: "reference"
         prototype: "QQuickPaintedItem"
@@ -46,6 +64,7 @@ Module {
     }
     Component {
         file: "private/qquickuniversalprogressbar_p.h"
+        lineNumber: 25
         name: "QQuickUniversalProgressBar"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -62,13 +81,22 @@ Module {
             "QtQuick.Controls.Universal.impl/ProgressBarImpl 6.7"
         ]
         exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
-        Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 0; isFinal: true }
+        Property {
+            name: "color"
+            type: "QColor"
+            read: "color"
+            write: "setColor"
+            index: 0
+            lineNumber: 28
+            isFinal: true
+        }
         Property {
             name: "progress"
             type: "double"
             read: "progress"
             write: "setProgress"
             index: 1
+            lineNumber: 29
             isFinal: true
         }
         Property {
@@ -77,6 +105,7 @@ Module {
             read: "isIndeterminate"
             write: "setIndeterminate"
             index: 2
+            lineNumber: 30
             isFinal: true
         }
     }

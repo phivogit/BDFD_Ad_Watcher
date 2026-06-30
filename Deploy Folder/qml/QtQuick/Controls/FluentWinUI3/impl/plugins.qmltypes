@@ -8,12 +8,29 @@ import QtQuick.tooling 1.2
 Module {
     Component {
         file: "private/qquickfluentwinui3focusstroke_p.h"
+        lineNumber: 20
         name: "QQuickFluentWinUI3FocusStroke"
         accessSemantics: "reference"
         prototype: "QQuickPaintedItem"
         exports: ["QtQuick.Controls.FluentWinUI3.impl/FocusStroke 6.8"]
         exportMetaObjectRevisions: [1544]
-        Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 0; isFinal: true }
-        Property { name: "radius"; type: "int"; read: "radius"; write: "setRadius"; index: 1; isFinal: true }
+        Property {
+            name: "color"
+            type: "QColor"
+            read: "color"
+            write: "setColor"
+            index: 0
+            lineNumber: 23
+            isFinal: true
+        }
+        Property {
+            name: "radius"
+            type: "int"
+            read: "radius"
+            write: "setRadius"
+            index: 1
+            lineNumber: 24
+            isFinal: true
+        }
     }
 }

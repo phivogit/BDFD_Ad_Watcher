@@ -17,6 +17,8 @@ ComboBox 6.0 ComboBox.qml
 ComboBox 2.0 ComboBox.qml
 DelayButton 6.0 DelayButton.qml
 DelayButton 2.0 DelayButton.qml
+DoubleSpinBox 6.0 DoubleSpinBox.qml
+DoubleSpinBox 2.0 DoubleSpinBox.qml
 Frame 6.0 Frame.qml
 Frame 2.0 Frame.qml
 GroupBox 6.0 GroupBox.qml
@@ -43,6 +45,7 @@ RangeSlider 6.0 RangeSlider.qml
 RangeSlider 2.0 RangeSlider.qml
 ScrollIndicator 6.0 ScrollIndicator.qml
 ScrollIndicator 2.0 ScrollIndicator.qml
+SearchField 6.10 SearchField.qml
 SelectionRectangle 6.0 SelectionRectangle.qml
 SelectionRectangle 2.0 SelectionRectangle.qml
 Slider 6.0 Slider.qml

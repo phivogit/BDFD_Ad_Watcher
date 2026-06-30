@@ -2,26 +2,41 @@
 There's an app, an organization, a language, called BDFD, aka, Bot Designer For Discord. Their mobile app lets us host discord bots for free in exchange for watching ads.
 So I made this macro that watches the ad for me 😀.
 
-This version is made for myself.
-### **This runs on windows
-and it uses bluestacks, emulate an android, and download the bdfd app from google play store.
+![Main Application screenshot](Readme_asset/Mainuse.png)
 
-If you use a different kind of phone, or different version of bdfd app, the advertisement format might be different, and this the ad watcher won't work.
-
+### Requirements
+* Runs on **Windows**.
+* Uses **Bluestacks** emulator (running the BDFD app downloaded from Google Play Store).
 
 ## Installation
-1. Go here https://github.com/phivogit/BDFD_Ad_Watcher/releases/tag/v1.0
-2. Download the zip file
-3. Extract the zip file, click on the exe file and it should run.
+1. Go to [Releases](https://github.com/phivogit/BDFD_Ad_Watcher/releases/tag/v4.1) and download the `.exe` file.
+2. Run the executable.
 
-4. Setup Bluestacks
-- Use android
-- Go to Bluestacks Settings --> Advanced --> Enable the option "Connect to Android at 127.0.0.1:5555"
-- Well if yours is a different port then maybe it won't work either, because I hardcoded it.
+> [!NOTE]
+> * **Startup Time**: It takes about 15 seconds to load up because the Python OCR server is initializing in the background.
+> * **Permissions**: On the very first run, Bluestacks will ask for USB debugging permission. Make sure to check **"Always allow from this computer"** so the app can connect silently in the future.
+
+## How to Configure Settings
+The app includes a configuration tab to map button coordinates if your Bluestacks screen layout differs from the default template.
+
+![Configuration Tab Screenshot](Readme_asset/Config_Tab.png)
+
+### Setting Coordinates & Templates
+* **Set Location Buttons (1 Click)**:
+  Used to set the coordinates for clicking buttons (e.g. X Close button, Ad Watch button). Click the button on the configuration tab, then make a **single click** on the corresponding pixel on the emulator preview.
+* **Template Saving Buttons (2 Clicks)**:
+  Used to capture image templates of buttons and screens to detect application states. Click the save button on the configuration tab, then make **two clicks** on the emulator preview:
+  1. First click: **Top-Left** corner of the button.
+  2. Second click: **Bottom-Right** corner of the button.
+
+### File & Settings Locations
+* **Default Settings**: Hardcoded as defaults inside [backend.h](file:///d:/Hi/CD/Github_repos/BDFDAdW/backend.h).
+* **Saved Settings File**: Saved permanently on your C drive at `C:\Users\<Username>\AppData\Local\appBDFDAdW\settings.json`.
+* **Templates Folder**: Saved relative to the executable at `./templates`.
 
 ## Usage
-1. Open Bluestacks
-2. Open BDFD app
-3. Click on your bot
-4. Make sure you don't scroll down, go to BDFD Ad Watcher, click Connect to bluestacks, then click Start.
-5. To stop the program, click Stop.
+1. Open Bluestacks.
+2. Open BDFD app.
+3. Click on your bot.
+4. Make sure you don't scroll down, go to BDFD Ad Watcher, click **Connect to bluestacks**, then click **Start**.
+5. To stop the program, click **Stop**.

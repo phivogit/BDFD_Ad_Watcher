@@ -15,6 +15,8 @@ DefaultComboBox 6.0 controls/DefaultComboBox.qml
 DefaultComboBox 2.0 controls/DefaultComboBox.qml
 DefaultDial 6.0 controls/DefaultDial.qml
 DefaultDial 2.0 controls/DefaultDial.qml
+DefaultDoubleSpinBox 6.0 controls/DefaultDoubleSpinBox.qml
+DefaultDoubleSpinBox 2.0 controls/DefaultDoubleSpinBox.qml
 DefaultFrame 6.0 controls/DefaultFrame.qml
 DefaultFrame 2.0 controls/DefaultFrame.qml
 DefaultGroupBox 6.0 controls/DefaultGroupBox.qml
@@ -31,6 +33,8 @@ DefaultRadioDelegate 6.0 controls/DefaultRadioDelegate.qml
 DefaultRadioDelegate 2.0 controls/DefaultRadioDelegate.qml
 DefaultScrollBar 6.0 controls/DefaultScrollBar.qml
 DefaultScrollBar 2.0 controls/DefaultScrollBar.qml
+DefaultSearchField 6.0 controls/DefaultSearchField.qml
+DefaultSearchField 2.0 controls/DefaultSearchField.qml
 DefaultSlider 6.0 controls/DefaultSlider.qml
 DefaultSlider 2.0 controls/DefaultSlider.qml
 DefaultSpinBox 6.0 controls/DefaultSpinBox.qml
@@ -43,5 +47,4 @@ WindowsFocusFrame 6.0 util/WindowsFocusFrame.qml
 WindowsFocusFrame 2.0 util/WindowsFocusFrame.qml
 DefaultTreeViewDelegate 6.0 controls/DefaultTreeViewDelegate.qml
 DefaultTreeViewDelegate 2.0 controls/DefaultTreeViewDelegate.qml
-depends QtQuick
 

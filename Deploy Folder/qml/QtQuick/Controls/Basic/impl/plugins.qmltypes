@@ -8,6 +8,7 @@ import QtQuick.tooling 1.2
 Module {
     Component {
         file: "private/qquickbasicbusyindicator_p.h"
+        lineNumber: 25
         name: "QQuickBasicBusyIndicator"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -24,12 +25,36 @@ Module {
             "QtQuick.Controls.Basic.impl/BusyIndicatorImpl 6.7"
         ]
         exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
-        Property { name: "pen"; type: "QColor"; read: "pen"; write: "setPen"; index: 0; isFinal: true }
-        Property { name: "fill"; type: "QColor"; read: "fill"; write: "setFill"; index: 1; isFinal: true }
-        Property { name: "running"; type: "bool"; read: "isRunning"; write: "setRunning"; index: 2 }
+        Property {
+            name: "pen"
+            type: "QColor"
+            read: "pen"
+            write: "setPen"
+            index: 0
+            lineNumber: 28
+            isFinal: true
+        }
+        Property {
+            name: "fill"
+            type: "QColor"
+            read: "fill"
+            write: "setFill"
+            index: 1
+            lineNumber: 29
+            isFinal: true
+        }
+        Property {
+            name: "running"
+            type: "bool"
+            read: "isRunning"
+            write: "setRunning"
+            index: 2
+            lineNumber: 30
+        }
     }
     Component {
         file: "private/qquickbasicdial_p.h"
+        lineNumber: 25
         name: "QQuickBasicDial"
         accessSemantics: "reference"
         prototype: "QQuickPaintedItem"
@@ -50,6 +75,7 @@ Module {
             read: "progress"
             write: "setProgress"
             index: 0
+            lineNumber: 28
             isFinal: true
         }
         Property {
@@ -58,6 +84,7 @@ Module {
             read: "startAngle"
             write: "setStartAngle"
             index: 1
+            lineNumber: 29
             isFinal: true
         }
         Property {
@@ -66,12 +93,22 @@ Module {
             read: "endAngle"
             write: "setEndAngle"
             index: 2
+            lineNumber: 30
             isFinal: true
         }
-        Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 3; isFinal: true }
+        Property {
+            name: "color"
+            type: "QColor"
+            read: "color"
+            write: "setColor"
+            index: 3
+            lineNumber: 31
+            isFinal: true
+        }
     }
     Component {
         file: "private/qquickbasicprogressbar_p.h"
+        lineNumber: 25
         name: "QQuickBasicProgressBar"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -94,6 +131,7 @@ Module {
             read: "isIndeterminate"
             write: "setIndeterminate"
             index: 0
+            lineNumber: 28
             isFinal: true
         }
         Property {
@@ -102,8 +140,17 @@ Module {
             read: "progress"
             write: "setProgress"
             index: 1
+            lineNumber: 29
             isFinal: true
         }
-        Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 2; isFinal: true }
+        Property {
+            name: "color"
+            type: "QColor"
+            read: "color"
+            write: "setColor"
+            index: 2
+            lineNumber: 30
+            isFinal: true
+        }
     }
 }

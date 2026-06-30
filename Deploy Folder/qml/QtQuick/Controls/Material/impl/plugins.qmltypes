@@ -8,6 +8,7 @@ import QtQuick.tooling 1.2
 Module {
     Component {
         file: "private/qquickmaterialbusyindicator_p.h"
+        lineNumber: 25
         name: "QQuickMaterialBusyIndicator"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -24,18 +25,28 @@ Module {
             "QtQuick.Controls.Material.impl/BusyIndicatorImpl 6.7"
         ]
         exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
-        Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 0; isFinal: true }
+        Property {
+            name: "color"
+            type: "QColor"
+            read: "color"
+            write: "setColor"
+            index: 0
+            lineNumber: 28
+            isFinal: true
+        }
         Property {
             name: "running"
             type: "bool"
             read: "isRunning"
             write: "setRunning"
             index: 1
+            lineNumber: 29
             isFinal: true
         }
     }
     Component {
         file: "private/qquickmaterialplaceholdertext_p.h"
+        lineNumber: 29
         name: "QQuickMaterialPlaceholderText"
         accessSemantics: "reference"
         prototype: "QQuickPlaceholderText"
@@ -51,6 +62,7 @@ Module {
             write: "setFilled"
             notify: "filledChanged"
             index: 0
+            lineNumber: 32
             isFinal: true
         }
         Property {
@@ -60,6 +72,7 @@ Module {
             write: "setControlHasActiveFocus"
             notify: "controlHasActiveFocusChanged"
             index: 1
+            lineNumber: 33
             isFinal: true
         }
         Property {
@@ -69,6 +82,7 @@ Module {
             write: "setControlHasText"
             notify: "controlHasTextChanged"
             index: 2
+            lineNumber: 35
             isFinal: true
         }
         Property {
@@ -77,6 +91,7 @@ Module {
             read: "largestHeight"
             notify: "largestHeightChanged"
             index: 3
+            lineNumber: 36
             isReadonly: true
             isFinal: true
         }
@@ -87,6 +102,7 @@ Module {
             write: "setVerticalPadding"
             notify: "verticalPaddingChanged"
             index: 4
+            lineNumber: 37
             isFinal: true
         }
         Property {
@@ -96,6 +112,7 @@ Module {
             write: "setControlImplicitBackgroundHeight"
             notify: "controlImplicitBackgroundHeightChanged"
             index: 5
+            lineNumber: 38
             isFinal: true
         }
         Property {
@@ -104,26 +121,36 @@ Module {
             read: "controlHeight"
             write: "setControlHeight"
             index: 6
+            lineNumber: 40
             isFinal: true
         }
-        Property { name: "leftPadding"; type: "int"; write: "setLeftPadding"; index: 7; isFinal: true }
+        Property {
+            name: "leftPadding"
+            type: "int"
+            write: "setLeftPadding"
+            index: 7
+            lineNumber: 41
+            isFinal: true
+        }
         Property {
             name: "floatingLeftPadding"
             type: "int"
             write: "setFloatingLeftPadding"
             index: 8
+            lineNumber: 42
             isFinal: true
         }
-        Signal { name: "filledChanged" }
-        Signal { name: "largestHeightChanged" }
-        Signal { name: "controlHasActiveFocusChanged" }
-        Signal { name: "controlHasTextChanged" }
-        Signal { name: "controlImplicitBackgroundHeightChanged" }
-        Signal { name: "verticalPaddingChanged" }
-        Method { name: "adjustTransformOrigin" }
+        Signal { name: "filledChanged"; lineNumber: 72 }
+        Signal { name: "largestHeightChanged"; lineNumber: 73 }
+        Signal { name: "controlHasActiveFocusChanged"; lineNumber: 74 }
+        Signal { name: "controlHasTextChanged"; lineNumber: 75 }
+        Signal { name: "controlImplicitBackgroundHeightChanged"; lineNumber: 76 }
+        Signal { name: "verticalPaddingChanged"; lineNumber: 77 }
+        Method { name: "adjustTransformOrigin"; lineNumber: 80 }
     }
     Component {
         file: "private/qquickmaterialprogressbar_p.h"
+        lineNumber: 25
         name: "QQuickMaterialProgressBar"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -140,13 +167,22 @@ Module {
             "QtQuick.Controls.Material.impl/ProgressBarImpl 6.7"
         ]
         exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
-        Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 0; isFinal: true }
+        Property {
+            name: "color"
+            type: "QColor"
+            read: "color"
+            write: "setColor"
+            index: 0
+            lineNumber: 28
+            isFinal: true
+        }
         Property {
             name: "progress"
             type: "double"
             read: "progress"
             write: "setProgress"
             index: 1
+            lineNumber: 29
             isFinal: true
         }
         Property {
@@ -155,11 +191,13 @@ Module {
             read: "isIndeterminate"
             write: "setIndeterminate"
             index: 2
+            lineNumber: 30
             isFinal: true
         }
     }
     Component {
         file: "private/qquickmaterialripple_p.h"
+        lineNumber: 25
         name: "QQuickMaterialRipple"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -178,15 +216,25 @@ Module {
         exportMetaObjectRevisions: [512, 513, 516, 519, 523, 1536, 1539, 1543]
         Enum {
             name: "Trigger"
+            lineNumber: 52
             values: ["Press", "Release"]
         }
-        Property { name: "color"; type: "QColor"; read: "color"; write: "setColor"; index: 0; isFinal: true }
+        Property {
+            name: "color"
+            type: "QColor"
+            read: "color"
+            write: "setColor"
+            index: 0
+            lineNumber: 28
+            isFinal: true
+        }
         Property {
             name: "clipRadius"
             type: "double"
             read: "clipRadius"
             write: "setClipRadius"
             index: 1
+            lineNumber: 29
             isFinal: true
         }
         Property {
@@ -195,6 +243,7 @@ Module {
             read: "isPressed"
             write: "setPressed"
             index: 2
+            lineNumber: 30
             isFinal: true
         }
         Property {
@@ -203,6 +252,7 @@ Module {
             read: "isActive"
             write: "setActive"
             index: 3
+            lineNumber: 31
             isFinal: true
         }
         Property {
@@ -212,6 +262,7 @@ Module {
             read: "anchor"
             write: "setAnchor"
             index: 4
+            lineNumber: 32
             isFinal: true
         }
         Property {
@@ -220,11 +271,13 @@ Module {
             read: "trigger"
             write: "setTrigger"
             index: 5
+            lineNumber: 33
             isFinal: true
         }
     }
     Component {
         file: "private/qquickmaterialtextcontainer_p.h"
+        lineNumber: 27
         name: "QQuickMaterialTextContainer"
         accessSemantics: "reference"
         prototype: "QQuickPaintedItem"
@@ -235,6 +288,7 @@ Module {
         exportMetaObjectRevisions: [1541, 1543]
         Enum {
             name: "PlaceHolderHAlignment"
+            lineNumber: 48
             values: [
                 "AlignLeft",
                 "AlignRight",
@@ -248,6 +302,7 @@ Module {
             read: "isFilled"
             write: "setFilled"
             index: 0
+            lineNumber: 30
             isFinal: true
         }
         Property {
@@ -257,6 +312,7 @@ Module {
             write: "setControlHasActiveFocus"
             notify: "controlHasActiveFocusChanged"
             index: 1
+            lineNumber: 31
             isFinal: true
         }
         Property {
@@ -265,6 +321,7 @@ Module {
             read: "fillColor"
             write: "setFillColor"
             index: 2
+            lineNumber: 33
             isFinal: true
         }
         Property {
@@ -273,6 +330,7 @@ Module {
             read: "outlineColor"
             write: "setOutlineColor"
             index: 3
+            lineNumber: 34
             isFinal: true
         }
         Property {
@@ -281,6 +339,7 @@ Module {
             read: "focusedOutlineColor"
             write: "setFocusedOutlineColor"
             index: 4
+            lineNumber: 35
             isFinal: true
         }
         Property {
@@ -289,6 +348,7 @@ Module {
             read: "focusAnimationProgress"
             write: "setFocusAnimationProgress"
             index: 5
+            lineNumber: 36
             isFinal: true
         }
         Property {
@@ -297,6 +357,7 @@ Module {
             read: "placeholderTextWidth"
             write: "setPlaceholderTextWidth"
             index: 6
+            lineNumber: 37
             isFinal: true
         }
         Property {
@@ -305,6 +366,7 @@ Module {
             read: "placeholderTextHAlign"
             write: "setPlaceholderTextHAlign"
             index: 7
+            lineNumber: 38
             isFinal: true
         }
         Property {
@@ -314,6 +376,7 @@ Module {
             write: "setControlHasText"
             notify: "controlHasTextChanged"
             index: 8
+            lineNumber: 39
             isFinal: true
         }
         Property {
@@ -323,6 +386,7 @@ Module {
             write: "setPlaceholderHasText"
             notify: "placeholderHasTextChanged"
             index: 9
+            lineNumber: 40
             isFinal: true
         }
         Property {
@@ -332,12 +396,13 @@ Module {
             write: "setHorizontalPadding"
             notify: "horizontalPaddingChanged"
             index: 10
+            lineNumber: 41
             isFinal: true
         }
-        Signal { name: "animateChanged" }
-        Signal { name: "controlHasActiveFocusChanged" }
-        Signal { name: "controlHasTextChanged" }
-        Signal { name: "placeholderHasTextChanged" }
-        Signal { name: "horizontalPaddingChanged" }
+        Signal { name: "animateChanged"; lineNumber: 92 }
+        Signal { name: "controlHasActiveFocusChanged"; lineNumber: 93 }
+        Signal { name: "controlHasTextChanged"; lineNumber: 94 }
+        Signal { name: "placeholderHasTextChanged"; lineNumber: 95 }
+        Signal { name: "horizontalPaddingChanged"; lineNumber: 96 }
     }
 }

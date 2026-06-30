@@ -8,6 +8,7 @@ import QtQuick.tooling 1.2
 Module {
     Component {
         file: "qquickstyleitem.h"
+        lineNumber: 126
         name: "QQuickStyleItem"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -22,6 +23,7 @@ Module {
         exportMetaObjectRevisions: [1536, 1539, 1543]
         Enum {
             name: "OverrideState"
+            lineNumber: 155
             values: ["None", "AlwaysHovered", "NeverHovered", "AlwaysSunken"]
         }
         Property {
@@ -30,6 +32,7 @@ Module {
             isPointer: true
             notify: "controlChanged"
             index: 0
+            lineNumber: 131
         }
         Property {
             name: "contentWidth"
@@ -37,6 +40,7 @@ Module {
             read: "contentWidth"
             write: "setContentWidth"
             index: 1
+            lineNumber: 132
         }
         Property {
             name: "contentHeight"
@@ -44,15 +48,17 @@ Module {
             read: "contentHeight"
             write: "setContentHeight"
             index: 2
+            lineNumber: 133
         }
-        Property { name: "useNinePatchImage"; type: "bool"; index: 3 }
-        Property { name: "overrideState"; type: "OverrideState"; index: 4 }
+        Property { name: "useNinePatchImage"; type: "bool"; index: 3; lineNumber: 134 }
+        Property { name: "overrideState"; type: "OverrideState"; index: 4; lineNumber: 135 }
         Property {
             name: "contentPadding"
             type: "QQuickStyleMargins"
             read: "contentPadding"
             notify: "contentPaddingChanged"
             index: 5
+            lineNumber: 138
             isReadonly: true
         }
         Property {
@@ -61,6 +67,7 @@ Module {
             read: "layoutMargins"
             notify: "layoutMarginsChanged"
             index: 6
+            lineNumber: 139
             isReadonly: true
         }
         Property {
@@ -69,23 +76,32 @@ Module {
             read: "minimumSize"
             notify: "minimumSizeChanged"
             index: 7
+            lineNumber: 140
             isReadonly: true
         }
-        Property { name: "transitionDuration"; type: "int"; index: 8; isPropertyConstant: true }
-        Signal { name: "controlChanged" }
-        Signal { name: "contentPaddingChanged" }
-        Signal { name: "layoutMarginsChanged" }
-        Signal { name: "fontChanged" }
-        Signal { name: "minimumSizeChanged" }
+        Property {
+            name: "transitionDuration"
+            type: "int"
+            index: 8
+            lineNumber: 141
+            isPropertyConstant: true
+        }
+        Signal { name: "controlChanged"; lineNumber: 202 }
+        Signal { name: "contentPaddingChanged"; lineNumber: 203 }
+        Signal { name: "layoutMarginsChanged"; lineNumber: 204 }
+        Signal { name: "fontChanged"; lineNumber: 205 }
+        Signal { name: "minimumSizeChanged"; lineNumber: 206 }
         Method {
             name: "styleFont"
             type: "QFont"
             isMethodConstant: true
+            lineNumber: 196
             Parameter { name: "control"; type: "QQuickItem"; isPointer: true }
         }
     }
     Component {
         file: "qquickstyleitembutton.h"
+        lineNumber: 13
         name: "QQuickStyleItemButton"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -98,6 +114,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemcheckbox.h"
+        lineNumber: 13
         name: "QQuickStyleItemCheckBox"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -110,6 +127,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemcheckdelegate.h"
+        lineNumber: 12
         name: "QQuickStyleItemCheckDelegate"
         accessSemantics: "reference"
         prototype: "QQuickStyleItemCheckBox"
@@ -122,6 +140,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemcombobox.h"
+        lineNumber: 13
         name: "QQuickStyleItemComboBox"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -134,6 +153,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemdelaybutton.h"
+        lineNumber: 12
         name: "QQuickStyleItemDelayButton"
         accessSemantics: "reference"
         prototype: "QQuickStyleItemButton"
@@ -146,6 +166,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemdial.h"
+        lineNumber: 13
         name: "QQuickStyleItemDial"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -157,7 +178,27 @@ Module {
         exportMetaObjectRevisions: [1536, 1539, 1543]
     }
     Component {
+        file: "qquickstyleitemdoublespinbox.h"
+        lineNumber: 13
+        name: "QQuickStyleItemDoubleSpinBox"
+        accessSemantics: "reference"
+        prototype: "QQuickStyleItem"
+        exports: [
+            "QtQuick.NativeStyle/DoubleSpinBox 6.0",
+            "QtQuick.NativeStyle/DoubleSpinBox 6.3",
+            "QtQuick.NativeStyle/DoubleSpinBox 6.7"
+        ]
+        exportMetaObjectRevisions: [1536, 1539, 1543]
+        Enum {
+            name: "SubControl"
+            lineNumber: 22
+            values: ["Frame", "Up", "Down"]
+        }
+        Property { name: "subControl"; type: "SubControl"; index: 0; lineNumber: 17 }
+    }
+    Component {
         file: "qquickstyleitemframe.h"
+        lineNumber: 13
         name: "QQuickStyleItemFrame"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -170,6 +211,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemgroupbox.h"
+        lineNumber: 13
         name: "QQuickStyleItemGroupBox"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -185,6 +227,7 @@ Module {
             read: "groupBoxPadding"
             notify: "groupBoxPaddingChanged"
             index: 0
+            lineNumber: 16
             isReadonly: true
         }
         Property {
@@ -193,13 +236,15 @@ Module {
             read: "labelPos"
             notify: "labelPosChanged"
             index: 1
+            lineNumber: 17
             isReadonly: true
         }
-        Signal { name: "groupBoxPaddingChanged" }
-        Signal { name: "labelPosChanged" }
+        Signal { name: "groupBoxPaddingChanged"; lineNumber: 26 }
+        Signal { name: "labelPosChanged"; lineNumber: 27 }
     }
     Component {
         file: "qquickstyleitemprogressbar.h"
+        lineNumber: 13
         name: "QQuickStyleItemProgressBar"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -212,6 +257,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemradiobutton.h"
+        lineNumber: 13
         name: "QQuickStyleItemRadioButton"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -224,6 +270,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemradiodelegate.h"
+        lineNumber: 12
         name: "QQuickStyleItemRadioDelegate"
         accessSemantics: "reference"
         prototype: "QQuickStyleItemRadioButton"
@@ -236,6 +283,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemscrollbar.h"
+        lineNumber: 13
         name: "QQuickStyleItemScrollBar"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -247,12 +295,33 @@ Module {
         exportMetaObjectRevisions: [1536, 1539, 1543]
         Enum {
             name: "SubControl"
+            lineNumber: 22
             values: ["Groove", "Handle", "AddLine", "SubLine"]
         }
-        Property { name: "subControl"; type: "SubControl"; index: 0 }
+        Property { name: "subControl"; type: "SubControl"; index: 0; lineNumber: 17 }
+    }
+    Component {
+        file: "qquickstyleitemsearchfield.h"
+        lineNumber: 13
+        name: "QQuickStyleItemSearchField"
+        accessSemantics: "reference"
+        prototype: "QQuickStyleItem"
+        exports: [
+            "QtQuick.NativeStyle/SearchField 6.0",
+            "QtQuick.NativeStyle/SearchField 6.3",
+            "QtQuick.NativeStyle/SearchField 6.7"
+        ]
+        exportMetaObjectRevisions: [1536, 1539, 1543]
+        Enum {
+            name: "SubControl"
+            lineNumber: 22
+            values: ["Frame", "Search", "Clear"]
+        }
+        Property { name: "subControl"; type: "SubControl"; index: 0; lineNumber: 17 }
     }
     Component {
         file: "qquickstyleitemslider.h"
+        lineNumber: 13
         name: "QQuickStyleItemSlider"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -264,12 +333,14 @@ Module {
         exportMetaObjectRevisions: [1536, 1539, 1543]
         Enum {
             name: "SubControl"
+            lineNumber: 22
             values: ["Groove", "Handle"]
         }
-        Property { name: "subControl"; type: "SubControl"; index: 0 }
+        Property { name: "subControl"; type: "SubControl"; index: 0; lineNumber: 17 }
     }
     Component {
         file: "qquickstyleitemspinbox.h"
+        lineNumber: 13
         name: "QQuickStyleItemSpinBox"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -281,12 +352,14 @@ Module {
         exportMetaObjectRevisions: [1536, 1539, 1543]
         Enum {
             name: "SubControl"
+            lineNumber: 22
             values: ["Frame", "Up", "Down"]
         }
-        Property { name: "subControl"; type: "SubControl"; index: 0 }
+        Property { name: "subControl"; type: "SubControl"; index: 0; lineNumber: 17 }
     }
     Component {
         file: "qquickstyleitemtextfield.h"
+        lineNumber: 13
         name: "QQuickStyleItemTextField"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -299,6 +372,7 @@ Module {
     }
     Component {
         file: "qquickstyleitemtreeindicator.h"
+        lineNumber: 13
         name: "QQuickStyleItemTreeIndicator"
         accessSemantics: "reference"
         prototype: "QQuickStyleItem"
@@ -311,14 +385,15 @@ Module {
     }
     Component {
         file: "qquickstyleitem.h"
+        lineNumber: 42
         name: "QQuickStyleMargins"
         accessSemantics: "value"
         exports: ["QtQuick.NativeStyle/stylemargins 6.0"]
         isCreatable: false
         exportMetaObjectRevisions: [1536]
-        Property { name: "left"; type: "int"; read: "left"; index: 0; isReadonly: true }
-        Property { name: "top"; type: "int"; read: "top"; index: 1; isReadonly: true }
-        Property { name: "right"; type: "int"; read: "right"; index: 2; isReadonly: true }
-        Property { name: "bottom"; type: "int"; read: "bottom"; index: 3; isReadonly: true }
+        Property { name: "left"; type: "int"; read: "left"; index: 0; lineNumber: 46; isReadonly: true }
+        Property { name: "top"; type: "int"; read: "top"; index: 1; lineNumber: 47; isReadonly: true }
+        Property { name: "right"; type: "int"; read: "right"; index: 2; lineNumber: 48; isReadonly: true }
+        Property { name: "bottom"; type: "int"; read: "bottom"; index: 3; lineNumber: 49; isReadonly: true }
     }
 }

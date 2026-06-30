@@ -23,6 +23,7 @@ Dialog 6.0 Dialog.qml
 Dialog 2.0 Dialog.qml
 DialogButtonBox 6.0 DialogButtonBox.qml
 DialogButtonBox 2.0 DialogButtonBox.qml
+DoubleSpinBox 6.11 DoubleSpinBox.qml
 Frame 6.0 Frame.qml
 Frame 2.0 Frame.qml
 GroupBox 6.0 GroupBox.qml
@@ -53,6 +54,7 @@ RangeSlider 6.0 RangeSlider.qml
 RangeSlider 2.0 RangeSlider.qml
 RoundButton 6.0 RoundButton.qml
 RoundButton 2.0 RoundButton.qml
+SearchField 6.10 SearchField.qml
 Slider 6.0 Slider.qml
 Slider 2.0 Slider.qml
 SpinBox 6.0 SpinBox.qml

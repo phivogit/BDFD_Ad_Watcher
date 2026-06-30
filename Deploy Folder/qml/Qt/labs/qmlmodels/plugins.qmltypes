@@ -7,13 +7,158 @@ import QtQuick.tooling 1.2
 
 Module {
     Component {
-        file: "qabstractitemmodel.h"
-        name: "QAbstractTableModel"
+        file: "private/qqmlabstractcolumnmodel_p.h"
+        lineNumber: 25
+        name: "QQmlAbstractColumnModel"
         accessSemantics: "reference"
+        defaultProperty: "columns"
         prototype: "QAbstractItemModel"
+        interfaces: ["QQmlParserStatus"]
+        Property {
+            name: "columnCount"
+            type: "int"
+            read: "columnCount"
+            notify: "columnCountChanged"
+            index: 0
+            lineNumber: 29
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "columns"
+            type: "QQmlTableModelColumn"
+            isList: true
+            read: "columns"
+            index: 1
+            lineNumber: 30
+            isReadonly: true
+            isFinal: true
+            isPropertyConstant: true
+        }
+        Signal { name: "columnCountChanged"; lineNumber: 58 }
+        Signal { name: "rowsChanged"; lineNumber: 59 }
+        Method {
+            name: "data"
+            type: "QVariant"
+            isMethodConstant: true
+            lineNumber: 49
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "role"; type: "QString" }
+        }
+        Method {
+            name: "data"
+            type: "QVariant"
+            isMethodConstant: true
+            lineNumber: 50
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "role"; type: "int" }
+        }
+        Method {
+            name: "data"
+            type: "QVariant"
+            isCloned: true
+            isMethodConstant: true
+            lineNumber: 50
+            Parameter { name: "index"; type: "QModelIndex" }
+        }
+        Method {
+            name: "setData"
+            type: "bool"
+            lineNumber: 51
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "value"; type: "QVariant" }
+            Parameter { name: "role"; type: "QString" }
+        }
+        Method {
+            name: "setData"
+            type: "bool"
+            lineNumber: 52
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "value"; type: "QVariant" }
+            Parameter { name: "role"; type: "int" }
+        }
+        Method {
+            name: "setData"
+            type: "bool"
+            isCloned: true
+            lineNumber: 52
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "value"; type: "QVariant" }
+        }
     }
     Component {
         file: "private/qqmldelegatechooser_p.h"
+        lineNumber: 36
+        name: "QQmlDelegateChoice"
+        accessSemantics: "reference"
+        defaultProperty: "delegate"
+        prototype: "QObject"
+        exports: [
+            "Qt.labs.qmlmodels/DelegateChoice 1.0",
+            "Qt.labs.qmlmodels/DelegateChoice 6.0"
+        ]
+        exportMetaObjectRevisions: [256, 1536]
+        Property {
+            name: "roleValue"
+            type: "QVariant"
+            read: "roleValue"
+            write: "setRoleValue"
+            notify: "roleValueChanged"
+            index: 0
+            lineNumber: 32
+            isFinal: true
+        }
+        Property {
+            name: "row"
+            type: "int"
+            read: "row"
+            write: "setRow"
+            notify: "rowChanged"
+            index: 1
+            lineNumber: 33
+            isFinal: true
+        }
+        Property {
+            name: "index"
+            type: "int"
+            read: "row"
+            write: "setRow"
+            notify: "indexChanged"
+            index: 2
+            lineNumber: 34
+            isFinal: true
+        }
+        Property {
+            name: "column"
+            type: "int"
+            read: "column"
+            write: "setColumn"
+            notify: "columnChanged"
+            index: 3
+            lineNumber: 35
+            isFinal: true
+        }
+        Property {
+            name: "delegate"
+            type: "QQmlComponent"
+            isPointer: true
+            read: "delegate"
+            write: "setDelegate"
+            notify: "delegateChanged"
+            index: 4
+            lineNumber: 36
+            isFinal: true
+        }
+        Signal { name: "roleValueChanged"; lineNumber: 57 }
+        Signal { name: "rowChanged"; lineNumber: 58 }
+        Signal { name: "indexChanged"; lineNumber: 59 }
+        Signal { name: "columnChanged"; lineNumber: 60 }
+        Signal { name: "delegateChanged"; lineNumber: 61 }
+        Signal { name: "changed"; lineNumber: 62 }
+    }
+    Component {
+        file: "private/qqmldelegatechooser_p.h"
+        lineNumber: 28
         name: "QQmlDelegateChooser"
         accessSemantics: "reference"
         defaultProperty: "choices"
@@ -31,6 +176,7 @@ Module {
             write: "setRole"
             notify: "roleChanged"
             index: 0
+            lineNumber: 74
             isFinal: true
         }
         Property {
@@ -39,19 +185,20 @@ Module {
             isList: true
             read: "choices"
             index: 1
+            lineNumber: 75
             isReadonly: true
             isFinal: true
             isPropertyConstant: true
         }
-        Signal { name: "roleChanged" }
+        Signal { name: "roleChanged"; lineNumber: 96 }
     }
     Component {
         file: "private/qqmltablemodel_p.h"
+        lineNumber: 32
         name: "QQmlTableModel"
         accessSemantics: "reference"
         defaultProperty: "columns"
-        prototype: "QAbstractTableModel"
-        interfaces: ["QQmlParserStatus"]
+        prototype: "QQmlAbstractColumnModel"
         exports: [
             "Qt.labs.qmlmodels/TableModel 1.0",
             "Qt.labs.qmlmodels/TableModel 6.0",
@@ -59,20 +206,12 @@ Module {
         ]
         exportMetaObjectRevisions: [256, 1536, 1540]
         Property {
-            name: "columnCount"
-            type: "int"
-            read: "columnCount"
-            notify: "columnCountChanged"
-            index: 0
-            isReadonly: true
-            isFinal: true
-        }
-        Property {
             name: "rowCount"
             type: "int"
             read: "rowCount"
             notify: "rowCountChanged"
-            index: 1
+            index: 0
+            lineNumber: 35
             isReadonly: true
             isFinal: true
         }
@@ -82,39 +221,32 @@ Module {
             read: "rows"
             write: "setRows"
             notify: "rowsChanged"
-            index: 2
+            index: 1
+            lineNumber: 36
             isFinal: true
         }
-        Property {
-            name: "columns"
-            type: "QQmlTableModelColumn"
-            isList: true
-            read: "columns"
-            index: 3
-            isReadonly: true
-            isFinal: true
-            isPropertyConstant: true
-        }
-        Signal { name: "columnCountChanged" }
-        Signal { name: "rowCountChanged" }
-        Signal { name: "rowsChanged" }
+        Signal { name: "rowCountChanged"; lineNumber: 64 }
         Method {
             name: "appendRow"
+            lineNumber: 49
             Parameter { name: "row"; type: "QVariant" }
         }
-        Method { name: "clear" }
+        Method { name: "clear"; lineNumber: 50 }
         Method {
             name: "getRow"
             type: "QVariant"
+            lineNumber: 51
             Parameter { name: "rowIndex"; type: "int" }
         }
         Method {
             name: "insertRow"
+            lineNumber: 52
             Parameter { name: "rowIndex"; type: "int" }
             Parameter { name: "row"; type: "QVariant" }
         }
         Method {
             name: "moveRow"
+            lineNumber: 53
             Parameter { name: "fromRowIndex"; type: "int" }
             Parameter { name: "toRowIndex"; type: "int" }
             Parameter { name: "rows"; type: "int" }
@@ -122,41 +254,32 @@ Module {
         Method {
             name: "moveRow"
             isCloned: true
+            lineNumber: 53
             Parameter { name: "fromRowIndex"; type: "int" }
             Parameter { name: "toRowIndex"; type: "int" }
         }
         Method {
             name: "removeRow"
+            lineNumber: 54
             Parameter { name: "rowIndex"; type: "int" }
             Parameter { name: "rows"; type: "int" }
         }
         Method {
             name: "removeRow"
             isCloned: true
+            lineNumber: 54
             Parameter { name: "rowIndex"; type: "int" }
         }
         Method {
             name: "setRow"
+            lineNumber: 55
             Parameter { name: "rowIndex"; type: "int" }
             Parameter { name: "row"; type: "QVariant" }
-        }
-        Method {
-            name: "data"
-            type: "QVariant"
-            isMethodConstant: true
-            Parameter { name: "index"; type: "QModelIndex" }
-            Parameter { name: "role"; type: "QString" }
-        }
-        Method {
-            name: "setData"
-            type: "bool"
-            Parameter { name: "index"; type: "QModelIndex" }
-            Parameter { name: "role"; type: "QString" }
-            Parameter { name: "value"; type: "QVariant" }
         }
     }
     Component {
         file: "private/qqmltablemodelcolumn_p.h"
+        lineNumber: 30
         name: "QQmlTableModelColumn"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -172,15 +295,7 @@ Module {
             write: "setDisplay"
             notify: "displayChanged"
             index: 0
-            isFinal: true
-        }
-        Property {
-            name: "setDisplay"
-            type: "QJSValue"
-            read: "getSetDisplay"
-            write: "setSetDisplay"
-            notify: "setDisplayChanged"
-            index: 1
+            lineNumber: 33
             isFinal: true
         }
         Property {
@@ -189,16 +304,8 @@ Module {
             read: "decoration"
             write: "setDecoration"
             notify: "decorationChanged"
-            index: 2
-            isFinal: true
-        }
-        Property {
-            name: "setDecoration"
-            type: "QJSValue"
-            read: "getSetDecoration"
-            write: "setSetDecoration"
-            notify: "setDecorationChanged"
-            index: 3
+            index: 1
+            lineNumber: 34
             isFinal: true
         }
         Property {
@@ -207,16 +314,8 @@ Module {
             read: "edit"
             write: "setEdit"
             notify: "editChanged"
-            index: 4
-            isFinal: true
-        }
-        Property {
-            name: "setEdit"
-            type: "QJSValue"
-            read: "getSetEdit"
-            write: "setSetEdit"
-            notify: "setEditChanged"
-            index: 5
+            index: 2
+            lineNumber: 35
             isFinal: true
         }
         Property {
@@ -225,16 +324,8 @@ Module {
             read: "toolTip"
             write: "setToolTip"
             notify: "toolTipChanged"
-            index: 6
-            isFinal: true
-        }
-        Property {
-            name: "setToolTip"
-            type: "QJSValue"
-            read: "getSetToolTip"
-            write: "setSetToolTip"
-            notify: "setToolTipChanged"
-            index: 7
+            index: 3
+            lineNumber: 36
             isFinal: true
         }
         Property {
@@ -243,16 +334,8 @@ Module {
             read: "statusTip"
             write: "setStatusTip"
             notify: "statusTipChanged"
-            index: 8
-            isFinal: true
-        }
-        Property {
-            name: "setStatusTip"
-            type: "QJSValue"
-            read: "getSetStatusTip"
-            write: "setSetStatusTip"
-            notify: "setStatusTipChanged"
-            index: 9
+            index: 4
+            lineNumber: 37
             isFinal: true
         }
         Property {
@@ -261,16 +344,8 @@ Module {
             read: "whatsThis"
             write: "setWhatsThis"
             notify: "whatsThisChanged"
-            index: 10
-            isFinal: true
-        }
-        Property {
-            name: "setWhatsThis"
-            type: "QJSValue"
-            read: "getSetWhatsThis"
-            write: "setSetWhatsThis"
-            notify: "setWhatsThisChanged"
-            index: 11
+            index: 5
+            lineNumber: 38
             isFinal: true
         }
         Property {
@@ -279,16 +354,8 @@ Module {
             read: "font"
             write: "setFont"
             notify: "fontChanged"
-            index: 12
-            isFinal: true
-        }
-        Property {
-            name: "setFont"
-            type: "QJSValue"
-            read: "getSetFont"
-            write: "setSetFont"
-            notify: "setFontChanged"
-            index: 13
+            index: 6
+            lineNumber: 40
             isFinal: true
         }
         Property {
@@ -297,16 +364,8 @@ Module {
             read: "textAlignment"
             write: "setTextAlignment"
             notify: "textAlignmentChanged"
-            index: 14
-            isFinal: true
-        }
-        Property {
-            name: "setTextAlignment"
-            type: "QJSValue"
-            read: "getSetTextAlignment"
-            write: "setSetTextAlignment"
-            notify: "setTextAlignmentChanged"
-            index: 15
+            index: 7
+            lineNumber: 41
             isFinal: true
         }
         Property {
@@ -315,16 +374,8 @@ Module {
             read: "background"
             write: "setBackground"
             notify: "backgroundChanged"
-            index: 16
-            isFinal: true
-        }
-        Property {
-            name: "setBackground"
-            type: "QJSValue"
-            read: "getSetBackground"
-            write: "setSetBackground"
-            notify: "setBackgroundChanged"
-            index: 17
+            index: 8
+            lineNumber: 42
             isFinal: true
         }
         Property {
@@ -333,16 +384,8 @@ Module {
             read: "foreground"
             write: "setForeground"
             notify: "foregroundChanged"
-            index: 18
-            isFinal: true
-        }
-        Property {
-            name: "setForeground"
-            type: "QJSValue"
-            read: "getSetForeground"
-            write: "setSetForeground"
-            notify: "setForegroundChanged"
-            index: 19
+            index: 9
+            lineNumber: 43
             isFinal: true
         }
         Property {
@@ -351,16 +394,8 @@ Module {
             read: "checkState"
             write: "setCheckState"
             notify: "checkStateChanged"
-            index: 20
-            isFinal: true
-        }
-        Property {
-            name: "setCheckState"
-            type: "QJSValue"
-            read: "getSetCheckState"
-            write: "setSetCheckState"
-            notify: "setCheckStateChanged"
-            index: 21
+            index: 10
+            lineNumber: 44
             isFinal: true
         }
         Property {
@@ -369,16 +404,8 @@ Module {
             read: "accessibleText"
             write: "setAccessibleText"
             notify: "accessibleTextChanged"
-            index: 22
-            isFinal: true
-        }
-        Property {
-            name: "setAccessibleText"
-            type: "QJSValue"
-            read: "getSetAccessibleText"
-            write: "setSetAccessibleText"
-            notify: "setAccessibleTextChanged"
-            index: 23
+            index: 11
+            lineNumber: 46
             isFinal: true
         }
         Property {
@@ -387,16 +414,8 @@ Module {
             read: "accessibleDescription"
             write: "setAccessibleDescription"
             notify: "accessibleDescriptionChanged"
-            index: 24
-            isFinal: true
-        }
-        Property {
-            name: "setAccessibleDescription"
-            type: "QJSValue"
-            read: "getSetAccessibleDescription"
-            write: "setSetAccessibleDescription"
-            notify: "setAccessibleDescriptionChanged"
-            index: 25
+            index: 12
+            lineNumber: 47
             isFinal: true
         }
         Property {
@@ -405,46 +424,81 @@ Module {
             read: "sizeHint"
             write: "setSizeHint"
             notify: "sizeHintChanged"
-            index: 26
+            index: 13
+            lineNumber: 50
             isFinal: true
         }
+        Signal { name: "indexChanged"; lineNumber: 107 }
+        Signal { name: "displayChanged"; lineNumber: 108 }
+        Signal { name: "decorationChanged"; lineNumber: 109 }
+        Signal { name: "editChanged"; lineNumber: 110 }
+        Signal { name: "toolTipChanged"; lineNumber: 111 }
+        Signal { name: "statusTipChanged"; lineNumber: 112 }
+        Signal { name: "whatsThisChanged"; lineNumber: 113 }
+        Signal { name: "fontChanged"; lineNumber: 115 }
+        Signal { name: "textAlignmentChanged"; lineNumber: 116 }
+        Signal { name: "backgroundChanged"; lineNumber: 117 }
+        Signal { name: "foregroundChanged"; lineNumber: 118 }
+        Signal { name: "checkStateChanged"; lineNumber: 119 }
+        Signal { name: "accessibleTextChanged"; lineNumber: 121 }
+        Signal { name: "accessibleDescriptionChanged"; lineNumber: 122 }
+        Signal { name: "sizeHintChanged"; lineNumber: 123 }
+    }
+    Component {
+        file: "private/qqmltreemodel_p.h"
+        lineNumber: 34
+        name: "QQmlTreeModel"
+        accessSemantics: "reference"
+        defaultProperty: "columns"
+        prototype: "QQmlAbstractColumnModel"
+        exports: ["Qt.labs.qmlmodels/TreeModel 6.10"]
+        exportMetaObjectRevisions: [1546]
         Property {
-            name: "setSizeHint"
-            type: "QJSValue"
-            read: "getSetSizeHint"
-            write: "setSetSizeHint"
-            notify: "setSizeHintChanged"
-            index: 27
+            name: "rows"
+            type: "QVariant"
+            read: "rows"
+            write: "setRows"
+            notify: "rowsChanged"
+            index: 0
+            lineNumber: 37
             isFinal: true
         }
-        Signal { name: "indexChanged" }
-        Signal { name: "displayChanged" }
-        Signal { name: "setDisplayChanged" }
-        Signal { name: "decorationChanged" }
-        Signal { name: "setDecorationChanged" }
-        Signal { name: "editChanged" }
-        Signal { name: "setEditChanged" }
-        Signal { name: "toolTipChanged" }
-        Signal { name: "setToolTipChanged" }
-        Signal { name: "statusTipChanged" }
-        Signal { name: "setStatusTipChanged" }
-        Signal { name: "whatsThisChanged" }
-        Signal { name: "setWhatsThisChanged" }
-        Signal { name: "fontChanged" }
-        Signal { name: "setFontChanged" }
-        Signal { name: "textAlignmentChanged" }
-        Signal { name: "setTextAlignmentChanged" }
-        Signal { name: "backgroundChanged" }
-        Signal { name: "setBackgroundChanged" }
-        Signal { name: "foregroundChanged" }
-        Signal { name: "setForegroundChanged" }
-        Signal { name: "checkStateChanged" }
-        Signal { name: "setCheckStateChanged" }
-        Signal { name: "accessibleTextChanged" }
-        Signal { name: "setAccessibleTextChanged" }
-        Signal { name: "accessibleDescriptionChanged" }
-        Signal { name: "setAccessibleDescriptionChanged" }
-        Signal { name: "sizeHintChanged" }
-        Signal { name: "setSizeHintChanged" }
+        Method {
+            name: "appendRow"
+            lineNumber: 50
+            Parameter { name: "parent"; type: "QModelIndex" }
+            Parameter { name: "row"; type: "QVariant" }
+        }
+        Method {
+            name: "appendRow"
+            lineNumber: 51
+            Parameter { name: "row"; type: "QVariant" }
+        }
+        Method { name: "clear"; lineNumber: 52 }
+        Method {
+            name: "getRow"
+            type: "QVariant"
+            isMethodConstant: true
+            lineNumber: 53
+            Parameter { name: "index"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeRow"
+            lineNumber: 54
+            Parameter { name: "index"; type: "QModelIndex" }
+        }
+        Method {
+            name: "setRow"
+            lineNumber: 55
+            Parameter { name: "index"; type: "QModelIndex" }
+            Parameter { name: "rowData"; type: "QVariant" }
+        }
+        Method {
+            name: "index"
+            type: "QModelIndex"
+            lineNumber: 57
+            Parameter { name: "rowIndex"; type: "std::vector<int>" }
+            Parameter { name: "column"; type: "int" }
+        }
     }
 }

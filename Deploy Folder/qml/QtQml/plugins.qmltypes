@@ -8,6 +8,7 @@ import QtQuick.tooling 1.2
 Module {
     Component {
         file: "private/qqmlbind_p.h"
+        lineNumber: 27
         name: "QQmlBind"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -25,11 +26,13 @@ Module {
             "QtQml/Binding 2.0",
             "QtQml/Binding 2.8",
             "QtQml/Binding 2.14",
-            "QtQml/Binding 6.0"
+            "QtQml/Binding 6.0",
+            "QtQml/Binding 6.10"
         ]
-        exportMetaObjectRevisions: [512, 520, 526, 1536]
+        exportMetaObjectRevisions: [512, 520, 526, 1536, 1546]
         Enum {
             name: "RestorationMode"
+            lineNumber: 30
             values: [
                 "RestoreNone",
                 "RestoreBinding",
@@ -43,18 +46,46 @@ Module {
             isPointer: true
             read: "object"
             write: "setObject"
+            notify: "objectChanged"
             index: 0
+            lineNumber: 42
         }
-        Property { name: "property"; type: "QString"; read: "property"; write: "setProperty"; index: 1 }
-        Property { name: "value"; type: "QVariant"; read: "value"; write: "setValue"; index: 2 }
-        Property { name: "when"; type: "bool"; read: "when"; write: "setWhen"; index: 3 }
+        Property {
+            name: "property"
+            type: "QString"
+            read: "property"
+            write: "setProperty"
+            notify: "propertyChanged"
+            index: 1
+            lineNumber: 43
+        }
+        Property {
+            name: "value"
+            type: "QVariant"
+            read: "value"
+            write: "setValue"
+            notify: "valueChanged"
+            index: 2
+            lineNumber: 44
+        }
+        Property {
+            name: "when"
+            type: "bool"
+            read: "when"
+            write: "setWhen"
+            notify: "whenChanged"
+            index: 3
+            lineNumber: 45
+        }
         Property {
             name: "delayed"
             revision: 520
             type: "bool"
             read: "delayed"
             write: "setDelayed"
+            notify: "delayedChanged"
             index: 4
+            lineNumber: 46
         }
         Property {
             name: "restoreMode"
@@ -64,12 +95,19 @@ Module {
             write: "setRestoreMode"
             notify: "restoreModeChanged"
             index: 5
+            lineNumber: 47
         }
-        Signal { name: "restoreModeChanged" }
-        Method { name: "targetValueChanged" }
+        Signal { name: "restoreModeChanged"; lineNumber: 77 }
+        Signal { name: "objectChanged"; revision: 1546; lineNumber: 78 }
+        Signal { name: "propertyChanged"; revision: 1546; lineNumber: 79 }
+        Signal { name: "valueChanged"; revision: 1546; lineNumber: 80 }
+        Signal { name: "whenChanged"; revision: 1546; lineNumber: 81 }
+        Signal { name: "delayedChanged"; revision: 1546; lineNumber: 82 }
+        Method { name: "targetValueChanged"; lineNumber: 94 }
     }
     Component {
         file: "private/qqmlconnections_p.h"
+        lineNumber: 32
         name: "QQmlConnections"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -89,6 +127,7 @@ Module {
             write: "setTarget"
             notify: "targetChanged"
             index: 0
+            lineNumber: 38
         }
         Property {
             name: "enabled"
@@ -98,6 +137,7 @@ Module {
             write: "setEnabled"
             notify: "enabledChanged"
             index: 1
+            lineNumber: 39
         }
         Property {
             name: "ignoreUnknownSignals"
@@ -105,12 +145,14 @@ Module {
             read: "ignoreUnknownSignals"
             write: "setIgnoreUnknownSignals"
             index: 2
+            lineNumber: 40
         }
-        Signal { name: "targetChanged" }
-        Signal { name: "enabledChanged"; revision: 515 }
+        Signal { name: "targetChanged"; lineNumber: 63 }
+        Signal { name: "enabledChanged"; revision: 515; lineNumber: 64 }
     }
     Component {
         file: "private/qqmllocaleenums_p.h"
+        lineNumber: 38
         name: "QQmlLocaleEnums"
         accessSemantics: "none"
         prototype: "QQmlLocale"
@@ -120,6 +162,7 @@ Module {
     }
     Component {
         file: "private/qqmlloggingcategory_p.h"
+        lineNumber: 33
         name: "QQmlLoggingCategory"
         accessSemantics: "reference"
         prototype: "QQmlLoggingCategoryBase"
@@ -132,9 +175,10 @@ Module {
         exportMetaObjectRevisions: [520, 524, 1536]
         Enum {
             name: "DefaultLogLevel"
+            lineNumber: 44
             values: ["Debug", "Info", "Warning", "Critical", "Fatal"]
         }
-        Property { name: "name"; type: "QString"; read: "name"; write: "setName"; index: 0 }
+        Property { name: "name"; type: "QString"; read: "name"; write: "setName"; index: 0; lineNumber: 38 }
         Property {
             name: "defaultLogLevel"
             revision: 524
@@ -142,10 +186,12 @@ Module {
             read: "defaultLogLevel"
             write: "setDefaultLogLevel"
             index: 1
+            lineNumber: 39
         }
     }
     Component {
         file: "private/qqmltimer_p.h"
+        lineNumber: 30
         name: "QQmlTimer"
         accessSemantics: "reference"
         parentProperty: "parent"
@@ -160,6 +206,7 @@ Module {
             write: "setInterval"
             notify: "intervalChanged"
             index: 0
+            lineNumber: 35
         }
         Property {
             name: "running"
@@ -168,6 +215,7 @@ Module {
             write: "setRunning"
             notify: "runningChanged"
             index: 1
+            lineNumber: 36
         }
         Property {
             name: "repeat"
@@ -176,6 +224,7 @@ Module {
             write: "setRepeating"
             notify: "repeatChanged"
             index: 2
+            lineNumber: 37
         }
         Property {
             name: "triggeredOnStart"
@@ -184,6 +233,7 @@ Module {
             write: "setTriggeredOnStart"
             notify: "triggeredOnStartChanged"
             index: 3
+            lineNumber: 38
         }
         Property {
             name: "parent"
@@ -191,17 +241,18 @@ Module {
             isPointer: true
             read: "parent"
             index: 4
+            lineNumber: 39
             isReadonly: true
             isPropertyConstant: true
         }
-        Signal { name: "triggered" }
-        Signal { name: "runningChanged" }
-        Signal { name: "intervalChanged" }
-        Signal { name: "repeatChanged" }
-        Signal { name: "triggeredOnStartChanged" }
-        Method { name: "start" }
-        Method { name: "stop" }
-        Method { name: "restart" }
-        Method { name: "ticked" }
+        Signal { name: "triggered"; lineNumber: 71 }
+        Signal { name: "runningChanged"; lineNumber: 72 }
+        Signal { name: "intervalChanged"; lineNumber: 73 }
+        Signal { name: "repeatChanged"; lineNumber: 74 }
+        Signal { name: "triggeredOnStartChanged"; lineNumber: 75 }
+        Method { name: "start"; lineNumber: 66 }
+        Method { name: "stop"; lineNumber: 67 }
+        Method { name: "restart"; lineNumber: 68 }
+        Method { name: "ticked"; lineNumber: 81 }
     }
 }

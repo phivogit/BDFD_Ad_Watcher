@@ -8,6 +8,7 @@ import QtQuick.tooling 1.2
 Module {
     Component {
         file: "private/qquickmultieffect_p.h"
+        lineNumber: 32
         name: "QQuickMultiEffect"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -26,6 +27,7 @@ Module {
             write: "setSource"
             notify: "sourceChanged"
             index: 0
+            lineNumber: 35
         }
         Property {
             name: "autoPaddingEnabled"
@@ -34,6 +36,7 @@ Module {
             write: "setAutoPaddingEnabled"
             notify: "autoPaddingEnabledChanged"
             index: 1
+            lineNumber: 36
         }
         Property {
             name: "paddingRect"
@@ -42,6 +45,7 @@ Module {
             write: "setPaddingRect"
             notify: "paddingRectChanged"
             index: 2
+            lineNumber: 37
         }
         Property {
             name: "brightness"
@@ -50,6 +54,7 @@ Module {
             write: "setBrightness"
             notify: "brightnessChanged"
             index: 3
+            lineNumber: 38
         }
         Property {
             name: "contrast"
@@ -58,6 +63,7 @@ Module {
             write: "setContrast"
             notify: "contrastChanged"
             index: 4
+            lineNumber: 39
         }
         Property {
             name: "saturation"
@@ -66,6 +72,7 @@ Module {
             write: "setSaturation"
             notify: "saturationChanged"
             index: 5
+            lineNumber: 40
         }
         Property {
             name: "colorization"
@@ -74,6 +81,7 @@ Module {
             write: "setColorization"
             notify: "colorizationChanged"
             index: 6
+            lineNumber: 41
         }
         Property {
             name: "colorizationColor"
@@ -82,6 +90,7 @@ Module {
             write: "setColorizationColor"
             notify: "colorizationColorChanged"
             index: 7
+            lineNumber: 42
         }
         Property {
             name: "blurEnabled"
@@ -90,6 +99,7 @@ Module {
             write: "setBlurEnabled"
             notify: "blurEnabledChanged"
             index: 8
+            lineNumber: 43
         }
         Property {
             name: "blur"
@@ -98,6 +108,7 @@ Module {
             write: "setBlur"
             notify: "blurChanged"
             index: 9
+            lineNumber: 44
         }
         Property {
             name: "blurMax"
@@ -106,6 +117,7 @@ Module {
             write: "setBlurMax"
             notify: "blurMaxChanged"
             index: 10
+            lineNumber: 45
         }
         Property {
             name: "blurMultiplier"
@@ -114,6 +126,7 @@ Module {
             write: "setBlurMultiplier"
             notify: "blurMultiplierChanged"
             index: 11
+            lineNumber: 46
         }
         Property {
             name: "shadowEnabled"
@@ -122,6 +135,7 @@ Module {
             write: "setShadowEnabled"
             notify: "shadowEnabledChanged"
             index: 12
+            lineNumber: 47
         }
         Property {
             name: "shadowOpacity"
@@ -130,6 +144,7 @@ Module {
             write: "setShadowOpacity"
             notify: "shadowOpacityChanged"
             index: 13
+            lineNumber: 48
         }
         Property {
             name: "shadowBlur"
@@ -138,6 +153,7 @@ Module {
             write: "setShadowBlur"
             notify: "shadowBlurChanged"
             index: 14
+            lineNumber: 49
         }
         Property {
             name: "shadowHorizontalOffset"
@@ -146,6 +162,7 @@ Module {
             write: "setShadowHorizontalOffset"
             notify: "shadowHorizontalOffsetChanged"
             index: 15
+            lineNumber: 50
         }
         Property {
             name: "shadowVerticalOffset"
@@ -154,6 +171,7 @@ Module {
             write: "setShadowVerticalOffset"
             notify: "shadowVerticalOffsetChanged"
             index: 16
+            lineNumber: 51
         }
         Property {
             name: "shadowColor"
@@ -162,6 +180,7 @@ Module {
             write: "setShadowColor"
             notify: "shadowColorChanged"
             index: 17
+            lineNumber: 52
         }
         Property {
             name: "shadowScale"
@@ -170,6 +189,7 @@ Module {
             write: "setShadowScale"
             notify: "shadowScaleChanged"
             index: 18
+            lineNumber: 53
         }
         Property {
             name: "maskEnabled"
@@ -178,6 +198,7 @@ Module {
             write: "setMaskEnabled"
             notify: "maskEnabledChanged"
             index: 19
+            lineNumber: 54
         }
         Property {
             name: "maskSource"
@@ -187,6 +208,7 @@ Module {
             write: "setMaskSource"
             notify: "maskSourceChanged"
             index: 20
+            lineNumber: 55
         }
         Property {
             name: "maskThresholdMin"
@@ -195,6 +217,7 @@ Module {
             write: "setMaskThresholdMin"
             notify: "maskThresholdMinChanged"
             index: 21
+            lineNumber: 56
         }
         Property {
             name: "maskSpreadAtMin"
@@ -203,6 +226,7 @@ Module {
             write: "setMaskSpreadAtMin"
             notify: "maskSpreadAtMinChanged"
             index: 22
+            lineNumber: 57
         }
         Property {
             name: "maskThresholdMax"
@@ -211,6 +235,7 @@ Module {
             write: "setMaskThresholdMax"
             notify: "maskThresholdMaxChanged"
             index: 23
+            lineNumber: 58
         }
         Property {
             name: "maskSpreadAtMax"
@@ -219,6 +244,7 @@ Module {
             write: "setMaskSpreadAtMax"
             notify: "maskSpreadAtMaxChanged"
             index: 24
+            lineNumber: 59
         }
         Property {
             name: "maskInverted"
@@ -227,6 +253,7 @@ Module {
             write: "setMaskInverted"
             notify: "maskInvertedChanged"
             index: 25
+            lineNumber: 60
         }
         Property {
             name: "itemRect"
@@ -234,6 +261,7 @@ Module {
             read: "itemRect"
             notify: "itemRectChanged"
             index: 26
+            lineNumber: 61
             isReadonly: true
         }
         Property {
@@ -242,6 +270,7 @@ Module {
             read: "fragmentShader"
             notify: "fragmentShaderChanged"
             index: 27
+            lineNumber: 62
             isReadonly: true
         }
         Property {
@@ -250,6 +279,7 @@ Module {
             read: "vertexShader"
             notify: "vertexShaderChanged"
             index: 28
+            lineNumber: 63
             isReadonly: true
         }
         Property {
@@ -258,50 +288,55 @@ Module {
             read: "hasProxySource"
             notify: "hasProxySourceChanged"
             index: 29
+            lineNumber: 64
             isReadonly: true
         }
-        Signal { name: "shaderChanged" }
-        Signal { name: "itemSizeChanged" }
-        Signal { name: "sourceChanged" }
-        Signal { name: "autoPaddingEnabledChanged" }
-        Signal { name: "paddingRectChanged" }
-        Signal { name: "brightnessChanged" }
-        Signal { name: "contrastChanged" }
-        Signal { name: "saturationChanged" }
-        Signal { name: "colorizationChanged" }
-        Signal { name: "colorizationColorChanged" }
-        Signal { name: "blurEnabledChanged" }
-        Signal { name: "blurChanged" }
-        Signal { name: "blurMaxChanged" }
-        Signal { name: "blurMultiplierChanged" }
-        Signal { name: "shadowEnabledChanged" }
-        Signal { name: "shadowOpacityChanged" }
-        Signal { name: "shadowBlurChanged" }
-        Signal { name: "shadowHorizontalOffsetChanged" }
-        Signal { name: "shadowVerticalOffsetChanged" }
-        Signal { name: "shadowColorChanged" }
-        Signal { name: "shadowScaleChanged" }
-        Signal { name: "maskEnabledChanged" }
-        Signal { name: "maskSourceChanged" }
-        Signal { name: "maskThresholdMinChanged" }
-        Signal { name: "maskSpreadAtMinChanged" }
-        Signal { name: "maskThresholdMaxChanged" }
-        Signal { name: "maskSpreadAtMaxChanged" }
-        Signal { name: "maskInvertedChanged" }
-        Signal { name: "itemRectChanged" }
-        Signal { name: "fragmentShaderChanged" }
-        Signal { name: "vertexShaderChanged" }
-        Signal { name: "hasProxySourceChanged" }
+        Signal { name: "shaderChanged"; lineNumber: 156 }
+        Signal { name: "itemSizeChanged"; lineNumber: 157 }
+        Signal { name: "sourceChanged"; lineNumber: 158 }
+        Signal { name: "autoPaddingEnabledChanged"; lineNumber: 159 }
+        Signal { name: "paddingRectChanged"; lineNumber: 160 }
+        Signal { name: "brightnessChanged"; lineNumber: 161 }
+        Signal { name: "contrastChanged"; lineNumber: 162 }
+        Signal { name: "saturationChanged"; lineNumber: 163 }
+        Signal { name: "colorizationChanged"; lineNumber: 164 }
+        Signal { name: "colorizationColorChanged"; lineNumber: 165 }
+        Signal { name: "blurEnabledChanged"; lineNumber: 166 }
+        Signal { name: "blurChanged"; lineNumber: 167 }
+        Signal { name: "blurMaxChanged"; lineNumber: 168 }
+        Signal { name: "blurMultiplierChanged"; lineNumber: 169 }
+        Signal { name: "shadowEnabledChanged"; lineNumber: 170 }
+        Signal { name: "shadowOpacityChanged"; lineNumber: 171 }
+        Signal { name: "shadowBlurChanged"; lineNumber: 172 }
+        Signal { name: "shadowHorizontalOffsetChanged"; lineNumber: 173 }
+        Signal { name: "shadowVerticalOffsetChanged"; lineNumber: 174 }
+        Signal { name: "shadowColorChanged"; lineNumber: 175 }
+        Signal { name: "shadowScaleChanged"; lineNumber: 176 }
+        Signal { name: "maskEnabledChanged"; lineNumber: 177 }
+        Signal { name: "maskSourceChanged"; lineNumber: 178 }
+        Signal { name: "maskThresholdMinChanged"; lineNumber: 179 }
+        Signal { name: "maskSpreadAtMinChanged"; lineNumber: 180 }
+        Signal { name: "maskThresholdMaxChanged"; lineNumber: 181 }
+        Signal { name: "maskSpreadAtMaxChanged"; lineNumber: 182 }
+        Signal { name: "maskInvertedChanged"; lineNumber: 183 }
+        Signal { name: "itemRectChanged"; lineNumber: 184 }
+        Signal { name: "fragmentShaderChanged"; lineNumber: 185 }
+        Signal { name: "vertexShaderChanged"; lineNumber: 186 }
+        Signal { name: "hasProxySourceChanged"; lineNumber: 187 }
     }
     Component {
         file: "private/qquickrectangularshadow_p.h"
+        lineNumber: 32
         name: "QQuickRectangularShadow"
         accessSemantics: "reference"
         defaultProperty: "data"
         parentProperty: "parent"
         prototype: "QQuickItem"
-        exports: ["QtQuick.Effects/RectangularShadow 6.9"]
-        exportMetaObjectRevisions: [1545]
+        exports: [
+            "QtQuick.Effects/RectangularShadow 6.9",
+            "QtQuick.Effects/RectangularShadow 6.11"
+        ]
+        exportMetaObjectRevisions: [1545, 1547]
         Property {
             name: "offset"
             type: "QVector2D"
@@ -309,6 +344,7 @@ Module {
             write: "setOffset"
             notify: "offsetChanged"
             index: 0
+            lineNumber: 35
             isFinal: true
         }
         Property {
@@ -318,6 +354,7 @@ Module {
             write: "setColor"
             notify: "colorChanged"
             index: 1
+            lineNumber: 36
             isFinal: true
         }
         Property {
@@ -327,6 +364,7 @@ Module {
             write: "setBlur"
             notify: "blurChanged"
             index: 2
+            lineNumber: 37
             isFinal: true
         }
         Property {
@@ -336,7 +374,52 @@ Module {
             write: "setRadius"
             notify: "radiusChanged"
             index: 3
+            lineNumber: 38
             isFinal: true
+        }
+        Property {
+            name: "topLeftRadius"
+            revision: 1547
+            type: "double"
+            read: "topLeftRadius"
+            write: "setTopLeftRadius"
+            reset: "resetTopLeftRadius"
+            notify: "topLeftRadiusChanged"
+            index: 4
+            lineNumber: 39
+        }
+        Property {
+            name: "topRightRadius"
+            revision: 1547
+            type: "double"
+            read: "topRightRadius"
+            write: "setTopRightRadius"
+            reset: "resetTopRightRadius"
+            notify: "topRightRadiusChanged"
+            index: 5
+            lineNumber: 40
+        }
+        Property {
+            name: "bottomLeftRadius"
+            revision: 1547
+            type: "double"
+            read: "bottomLeftRadius"
+            write: "setBottomLeftRadius"
+            reset: "resetBottomLeftRadius"
+            notify: "bottomLeftRadiusChanged"
+            index: 6
+            lineNumber: 41
+        }
+        Property {
+            name: "bottomRightRadius"
+            revision: 1547
+            type: "double"
+            read: "bottomRightRadius"
+            write: "setBottomRightRadius"
+            reset: "resetBottomRightRadius"
+            notify: "bottomRightRadiusChanged"
+            index: 7
+            lineNumber: 42
         }
         Property {
             name: "spread"
@@ -344,7 +427,8 @@ Module {
             read: "spread"
             write: "setSpread"
             notify: "spreadChanged"
-            index: 4
+            index: 8
+            lineNumber: 43
             isFinal: true
         }
         Property {
@@ -353,7 +437,8 @@ Module {
             read: "isCached"
             write: "setCached"
             notify: "cachedChanged"
-            index: 5
+            index: 9
+            lineNumber: 44
             isFinal: true
         }
         Property {
@@ -363,15 +448,20 @@ Module {
             read: "material"
             write: "setMaterial"
             notify: "materialChanged"
-            index: 6
+            index: 10
+            lineNumber: 45
             isFinal: true
         }
-        Signal { name: "offsetChanged" }
-        Signal { name: "colorChanged" }
-        Signal { name: "blurChanged" }
-        Signal { name: "radiusChanged" }
-        Signal { name: "spreadChanged" }
-        Signal { name: "cachedChanged" }
-        Signal { name: "materialChanged" }
+        Signal { name: "offsetChanged"; lineNumber: 80 }
+        Signal { name: "colorChanged"; lineNumber: 81 }
+        Signal { name: "blurChanged"; lineNumber: 82 }
+        Signal { name: "radiusChanged"; lineNumber: 83 }
+        Signal { name: "spreadChanged"; lineNumber: 84 }
+        Signal { name: "cachedChanged"; lineNumber: 85 }
+        Signal { name: "materialChanged"; lineNumber: 86 }
+        Signal { name: "topLeftRadiusChanged"; revision: 1547; lineNumber: 87 }
+        Signal { name: "topRightRadiusChanged"; revision: 1547; lineNumber: 88 }
+        Signal { name: "bottomLeftRadiusChanged"; revision: 1547; lineNumber: 89 }
+        Signal { name: "bottomRightRadiusChanged"; revision: 1547; lineNumber: 90 }
     }
 }

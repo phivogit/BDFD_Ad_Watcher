@@ -1,5 +1,6 @@
 // Copyright (C) 2024 The Qt Company Ltd.
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+// Qt-Security score:significant reason:default
 
 import QtQuick
 import QtQuick.Controls.impl
@@ -27,16 +28,14 @@ T.ItemDelegate {
     leftInset: -__config.leftInset || 0
     rightInset: -__config.rightInset || 0
 
+    readonly property bool __isHighContrast: Application.styleHints.accessibility.contrastPreference === Qt.HighContrast
+
     icon.width: 16
     icon.height: 16
-    icon.color: control.down ? __pressedText : control.palette.buttonText
 
     readonly property int __horizontalOffset: 4
     readonly property int __verticalOffset: 2
 
-    readonly property color __pressedText: Application.styleHints.colorScheme == Qt.Light
-                                                    ? Qt.rgba(control.palette.buttonText.r, control.palette.buttonText.g, control.palette.buttonText.b, 0.62)
-                                                    : Qt.rgba(control.palette.buttonText.r, control.palette.buttonText.g, control.palette.buttonText.b, 0.7725)
     readonly property string __currentState: [
         !control.enabled && "disabled",
         control.highlighted && "highlighted",
@@ -53,9 +52,15 @@ T.ItemDelegate {
         display: control.display
         alignment: control.display === IconLabel.IconOnly || control.display === IconLabel.TextUnderIcon ? Qt.AlignCenter : Qt.AlignLeft
         icon: control.icon
+        defaultIconColor: control.down ? pressedText : control.__isHighContrast && control.hovered
+            ? control.palette.button : control.palette.buttonText
         text: control.text
         font: control.font
-        color: control.icon.color
+        color: defaultIconColor
+
+        readonly property color pressedText: Application.styleHints.colorScheme === Qt.Light
+            ? Qt.rgba(control.palette.buttonText.r, control.palette.buttonText.g, control.palette.buttonText.b, 0.62)
+            : Qt.rgba(control.palette.buttonText.r, control.palette.buttonText.g, control.palette.buttonText.b, 0.7725)
     }
 
     background: Item {
@@ -63,6 +68,7 @@ T.ItemDelegate {
         implicitHeight: 40
 
         property Item backgroundImage: Impl.StyleImage {
+            visible: !control.__isHighContrast
             parent: control.background
             imageConfig: control.__config.background
             implicitWidth: parent.width - control.__horizontalOffset * 2
@@ -80,14 +86,23 @@ T.ItemDelegate {
                         : 0
             radius: width * 0.5
             color: control.palette.accent
-            visible: control.highlighted || control.activeFocus
-
+            visible: (control.highlighted || control.activeFocus) && !control.__isHighContrast
             Behavior on height {
                 NumberAnimation {
                     duration: 187
                     easing.type: Easing.OutCubic
                 }
             }
+        }
+
+        Rectangle {
+            visible: control.__isHighContrast
+            implicitWidth: parent.width - control.__horizontalOffset * 2
+            implicitHeight: parent.height - control.__verticalOffset * 2
+            x: control.__horizontalOffset
+            y: control.__verticalOffset
+            color: control.hovered ? control.palette.accent : control.palette.window
+            radius: 4
         }
     }
 }
