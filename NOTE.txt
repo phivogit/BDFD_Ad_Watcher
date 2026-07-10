@@ -1,5 +1,4 @@
-- Use OpenCV template matching to determine state
-- Add take smaller screenshot button to take a screenshot and cut out on bluestack instead of
+
+
 - Use PaddleOCR / Train AI
 - Switch between landscape and horizontal layout
-- Customizable Ad button location
